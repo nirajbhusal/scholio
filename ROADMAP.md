@@ -10,7 +10,7 @@
 - GitHub Actions: add the Astro build step to the existing Pages deploy; link checker
 
 ## Phase 2: accounts
-- Supabase auth, saved awards, profile sync, certificate verify endpoint (scholio.org/verify/ID)
+- Supabase auth, saved awards, profile sync, certificate verify endpoint (needs the domain registered first)
 - Email alerts 14 and 3 days before saved deadlines
 - Reviews with "applied/awarded" gating moved from GitHub Issues to the app
 

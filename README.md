@@ -1,6 +1,6 @@
 # Scholio
 
-Global index of Master's and PhD scholarships. Live at https://nirajbhusal.github.io/scholio/ (repository `nirajbhusal/scholio`, deployed to GitHub Pages by `.github/workflows/pages.yml` on every push to `main`).
+Global index of Master's and PhD scholarships. Live at https://nirajbhusal.github.io/scholio/ (repository `nirajbhusal/scholio`, deployed to GitHub Pages by `.github/workflows/pages.yml` on every push to `main`, which runs `node scripts/build.mjs` and publishes `_site/`).
 
 ## Run locally
 Open `index.html` straight from disk; views then switch with `#hash` instead of clean paths. The page uses `<base href="/scholio/">`, so to test clean paths, the service worker or `/award/<id>/` links, serve the repo under a `/scholio/` path with `404.html` as the not-found page, which is what GitHub Pages does.
@@ -21,6 +21,8 @@ Everything a visitor saves stays in their browser (localStorage) until accounts 
 - `404.html`: byte-for-byte copy of `index.html` so clean paths and `/award/<id>/` links resolve. After any edit: `cp index.html 404.html`.
 - `data/awards.json`: export of `DATA`. Regenerate whenever `DATA` changes.
 - `scripts/verify.mjs`: fetches every official URL and flags pages that changed. `VERIFY.md` is the human verification log.
+- `scripts/build.mjs`: writes `_site/` with a real page per view and per award (own title, description, canonical) and `sitemap.xml`.
+- `vendor/leaflet.js`: Leaflet 1.9.4, loaded when the map is first opened.
 - `sw.js`, `manifest.webmanifest`, icons: PWA shell.
 
 ## Data rules

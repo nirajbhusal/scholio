@@ -312,7 +312,8 @@
    "age": {
     "Master's": 25,
     "PhD": 30
-   }
+   },
+   "ageUnder": true
   },
   "lat": 48.853,
   "lng": 2.349,
@@ -544,7 +545,8 @@
    "age": {
     "Master's": 35,
     "PhD": 35
-   }
+   },
+   "ageUnder": true
   },
   "lat": 35.68,
   "lng": 139.69,
@@ -822,7 +824,8 @@
    "age": {
     "Master's": 40,
     "PhD": 40
-   }
+   },
+   "ageUnder": true
   },
   "lat": 37.57,
   "lng": 126.98,
@@ -862,7 +865,8 @@
    "age": {
     "Master's": 30,
     "PhD": 35
-   }
+   },
+   "ageUnder": true
   },
   "lat": 39.93,
   "lng": 32.86,
@@ -934,7 +938,8 @@
    "age": {
     "Master's": 35,
     "PhD": 40
-   }
+   },
+   "ageUnder": true
   },
   "lat": 39.9,
   "lng": 116.4,
@@ -1070,7 +1075,8 @@
    "route": "university",
    "age": {
     "Master's": 35
-   }
+   },
+   "ageUnder": true
   },
   "lat": 35.69,
   "lng": 139.76,
@@ -1179,7 +1185,8 @@
    "age": {
     "Master's": 30,
     "PhD": 30
-   }
+   },
+   "ageUnder": true
   },
   "lat": 52.52,
   "lng": 13.4,
@@ -1285,7 +1292,11 @@
   "id": "vlir",
   "elig": {
    "cit": "oda",
-   "route": "direct"
+   "route": "direct",
+   "age": {
+    "Master's": 40
+   },
+   "ageUnder": true
   },
   "lat": 50.85,
   "lng": 4.35,
@@ -1549,7 +1560,7 @@
   "window": "Opens 1 February, closes 31 March in most countries",
   "funding": "Full",
   "who": "Most nationalities; apply through the Taiwan representative office in your country",
-  "value": "Tuition up to TWD 40,000 per semester plus TWD 20,000 (Master's) or 20,000+ (PhD) per month",
+  "value": "Tuition up to TWD 40,000 per semester plus TWD 20,000 per month (Master's and PhD)",
   "english": "Per programme; many English-taught",
   "minEng": 6,
   "offerFirst": false,
@@ -1911,7 +1922,8 @@
    "age": {
     "Master's": 40,
     "PhD": 45
-   }
+   },
+   "ageUnder": true
   },
   "lat": 3.14,
   "lng": 101.69,
