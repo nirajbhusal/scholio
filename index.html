@@ -19,12 +19,14 @@
 <link rel="icon" href="favicon.svg" type="image/svg+xml">
 <link rel="apple-touch-icon" href="icon-192.png">
 <link rel="manifest" href="manifest.webmanifest">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;500&display=swap">
 <script>if("serviceWorker" in navigator&&location.protocol==="https:")navigator.serviceWorker.register("sw.js").catch(()=>{})</script>
 <style>html{color-scheme:light}body{margin:0;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}img{max-width:100%}[hidden]{display:none!important}</style>
-<script type="application/ld+json">{"@context":"https://schema.org","@type":"WebSite","name":"Scholio","url":"https://nirajbhusal.github.io/scholio/","description":"Global index of Master's and PhD scholarships with verified deadlines and a fit score.","potentialAction":{"@type":"SearchAction","target":"https://nirajbhusal.github.io/scholio/#home?q={search_term_string}","query-input":"required name=search_term_string"}}</script>
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"WebSite","name":"Scholio","url":"https://nirajbhusal.github.io/scholio/","description":"Global index of Master's and PhD scholarships with verified deadlines and a fit score.","potentialAction":{"@type":"SearchAction","target":"https://nirajbhusal.github.io/scholio/?q={search_term_string}","query-input":"required name=search_term_string"}}</script>
 </head>
 <body>
-<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;500&display=swap">
 <style>
 /* Layout: light product shell. Icon nav, search-first hero, rotating deadline strip, path cards, catalogue with segmented filters, side-sheet detail, course player and certificate. */
 :root{
@@ -34,7 +36,6 @@
   --r:16px; --shadow:0 1px 2px rgba(15,23,42,.04),0 14px 40px rgba(15,23,42,.07);
   color-scheme:light;
 }
-:root{--theme-set:1}
 *{box-sizing:border-box}
 body{background:var(--bg);color:var(--fg);font-family:var(--body);font-size:15px;line-height:1.55;margin:0;-webkit-font-smoothing:antialiased}
 body::before{content:"";position:fixed;inset:0 0 auto;height:env(safe-area-inset-top,0px);z-index:10;background:var(--surface)}
@@ -77,7 +78,6 @@ nav button[aria-selected="true"]{background:var(--accent-soft);color:var(--accen
 .signin{border:1px solid var(--line);background:var(--surface);padding:7px 14px;border-radius:999px;cursor:pointer;font-weight:600;font-size:14px;display:inline-flex;gap:8px;align-items:center}
 nav{flex:1;min-width:0;overflow-x:auto;scrollbar-width:none;-webkit-overflow-scrolling:touch;justify-content:flex-start;mask-image:linear-gradient(90deg,#000 calc(100% - 16px),transparent)} nav::-webkit-scrollbar{display:none} nav button{white-space:nowrap;flex:none}
 .brand span,.signin span{display:inline}
-@media (max-width:1100px){nav{justify-content:flex-start} nav button{padding:7px 9px;font-size:13px}}
 @media (max-width:600px){.bar{flex-wrap:wrap;gap:8px} nav{order:3;width:100%;flex:none} .brand{margin-right:auto}}
 
 main{padding-block:22px 64px}
@@ -132,7 +132,6 @@ section[hidden]{display:none}
 .mono{font-family:var(--mono);font-size:11px;letter-spacing:.1em;text-transform:uppercase;color:var(--muted)}
 label.l{display:block;font-size:13px;color:var(--muted);margin-bottom:5px;font-weight:500}
 input,select,textarea{width:100%;padding:10px 12px;border:1px solid var(--line);border-radius:11px;background:var(--surface)}
-.stars{color:var(--amber);letter-spacing:1px;font-size:13px}
 .sp{height:36px}
 
 /* path cards */
@@ -210,8 +209,6 @@ dt{font-size:12px;font-weight:600;color:var(--muted);padding-top:2px} dd{margin:
 .deadline-big b{font-size:32px;font-weight:800;letter-spacing:-.03em;font-variant-numeric:tabular-nums} .deadline-big span{color:var(--muted);font-size:13px}
 .review{border-top:1px solid var(--line);padding:12px 0;font-size:14px}
 .review .who{display:flex;justify-content:space-between;gap:10px;font-size:13px;color:var(--muted);margin-bottom:4px}
-.ratebar{display:grid;grid-template-columns:60px 1fr auto;gap:10px;align-items:center;font-size:13px}
-.ratebar .bar{height:6px;background:var(--surface-2);border-radius:3px;overflow:hidden} .ratebar .bar i{display:block;height:100%;background:var(--amber)}
 
 /* assessment */
 .check{display:grid;grid-template-columns:360px 1fr;gap:24px;align-items:start}
@@ -293,7 +290,6 @@ dt{font-size:12px;font-weight:600;color:var(--muted);padding-top:2px} dd{margin:
 .ev{display:grid;grid-template-columns:64px 1fr auto;gap:16px;align-items:center;background:var(--surface);border:1px solid var(--line);border-radius:var(--r);padding:14px 18px}
 .ev .d{text-align:center;background:var(--accent-soft);border-radius:12px;padding:8px 0;color:var(--accent)} .ev .d b{display:block;font-size:24px;line-height:1;font-weight:800} .ev .d span{font-size:11px;text-transform:uppercase;letter-spacing:.08em}
 .ev h4{font-size:15px} .ev p{margin:2px 0 0;font-size:13px;color:var(--muted)}
-.kpi{background:var(--surface-2);border-radius:12px;padding:12px} .kpi b{display:block;font-size:24px;font-weight:800;letter-spacing:-.03em;font-variant-numeric:tabular-nums} .kpi span{font-size:12px;color:var(--muted)}
 .steps{display:grid;gap:12px;counter-reset:s}
 .step{display:grid;grid-template-columns:28px 1fr;gap:12px;align-items:start}
 .step::before{counter-increment:s;content:counter(s);width:28px;height:28px;border-radius:50%;background:var(--accent-soft);color:var(--accent);display:grid;place-items:center;font-weight:800;font-size:13px}
@@ -305,8 +301,6 @@ dt{font-size:12px;font-weight:600;color:var(--muted);padding-top:2px} dd{margin:
 .box{background:var(--surface);border:1px solid var(--line);border-radius:12px;padding:10px 12px;font-size:13px;min-width:0}
 .box b{display:block;font-size:13px} .box span{color:var(--muted);font-size:12px}
 .box.core{border-color:var(--accent);background:var(--accent-soft)}
-.phases{display:grid;grid-template-columns:repeat(4,1fr);gap:10px}
-.ph{background:var(--surface);border:1px solid var(--line);border-radius:14px;padding:14px} .ph .mono{margin-bottom:6px} .ph b{display:block;margin-bottom:6px} .ph ul{margin:0;padding-left:16px;font-size:13px;color:var(--muted)}
 .signup{display:grid;grid-template-columns:1fr 1fr;gap:32px;align-items:start}
 .authcard{background:var(--surface);border:1px solid var(--line);border-radius:24px;padding:28px;display:grid;gap:12px;box-shadow:var(--shadow);position:relative;overflow:hidden}
 .authcard .soon{position:absolute;top:18px;right:-34px;transform:rotate(35deg);background:var(--amber);color:#1f1300;font-weight:800;font-size:11px;letter-spacing:.1em;text-transform:uppercase;padding:6px 48px}
@@ -410,7 +404,7 @@ dt{font-size:12px;font-weight:600;color:var(--muted);padding-top:2px} dd{margin:
 :root[data-theme="dark"] .certificate{background:var(--surface);color:#0f172a}
 :root[data-theme="dark"] .hint-chips button{background:rgba(17,26,43,.7)}
 :root[data-theme="dark"] .strip{background:#000}
-:root[data-theme="dark"] .letter,:root[data-theme="dark"] .note,:root[data-theme="dark"] .kpi{background:var(--surface-2)}
+:root[data-theme="dark"] .letter,:root[data-theme="dark"] .note{background:var(--surface-2)}
 :root[data-theme="dark"] .wopt .k{background:var(--surface-2)}
 
 /* mobile bar */
@@ -463,9 +457,9 @@ footer .links{display:flex;gap:12px;margin-left:auto}
   .res{grid-template-columns:1fr} .res .fit{text-align:left}
   .ev{grid-template-columns:56px 1fr} .ev .act{grid-column:2}
   .layer{grid-template-columns:1fr} .layer .nm{padding-top:0}
-  .phases{grid-template-columns:1fr 1fr} .certificate .meta{grid-template-columns:1fr}
+  .certificate .meta{grid-template-columns:1fr}
 }
-@media (max-width:520px){.paths,.values,.foryou,.grid4,.phases{grid-template-columns:1fr}}
+@media (max-width:520px){.paths,.values,.foryou,.grid4{grid-template-columns:1fr}}
 </style>
 
 <svg width="0" height="0" style="position:absolute" aria-hidden="true">
@@ -558,7 +552,7 @@ footer .links{display:flex;gap:12px;margin-left:auto}
         <div class="box"><svg class="i" style="color:var(--muted)"><use href="#ic-search"/></svg><input id="q" type="search" placeholder="Search a country, university, subject or award" autocomplete="off" aria-label="Search"><button class="go" id="go" type="button"><svg class="i s"><use href="#ic-arrow"/></svg><span>Search</span></button></div>
         <div class="sugg-box" id="sugg-box"></div>
       </div>
-      <div class="hint-chips"><button data-q="PhD"><svg class="i s"><use href="#ic-cap"/></svg>PhD</button><button data-q="AI"><svg class="i s"><use href="#ic-sparkle"/></svg>AI &amp; Computing</button><button data-q="Europe"><svg class="i s"><use href="#ic-globe"/></svg>Europe</button><button data-q="No English test"><svg class="i s"><use href="#ic-lang"/></svg>No English test</button><button data-q="Fully funded"><svg class="i s"><use href="#ic-money"/></svg>Fully funded</button></div>
+      <div class="hint-chips"><button data-q="PhD"><svg class="i s"><use href="#ic-cap"/></svg>PhD</button><button data-q="AI &amp; Computing"><svg class="i s"><use href="#ic-sparkle"/></svg>AI &amp; Computing</button><button data-q="Europe"><svg class="i s"><use href="#ic-globe"/></svg>Europe</button><button data-q="No English test"><svg class="i s"><use href="#ic-lang"/></svg>No English test</button><button data-q="Fully funded"><svg class="i s"><use href="#ic-money"/></svg>Fully funded</button></div>
     </div>
     <div class="art">
       <svg viewBox="0 0 520 360" role="img" aria-label="Illustration: a globe with scholarship cards orbiting it">
@@ -587,7 +581,7 @@ footer .links{display:flex;gap:12px;margin-left:auto}
   <div class="paths">
     <button class="path" data-scroll="catalogue"><svg class="il"><use href="#il-find"/></svg><h4>Find an award</h4><p>Filter by level, field, region, funding and English rules.</p><span class="n">Browse the catalogue →</span></button>
     <button class="path" data-view="assess"><svg class="il"><use href="#il-fit"/></svg><h4>Get your Scholio Score</h4><p>Fourteen questions, a readiness score with public weights, and eligibility per award.</p><span class="n">Start →</span></button>
-    <button class="path" data-view="academy"><svg class="il"><use href="#il-learn"/></svg><h4>Prepare and get certified</h4><p>Crash courses with quizzes and an Scholio certificate.</p><span class="n">Open the Academy →</span></button>
+    <button class="path" data-view="academy"><svg class="il"><use href="#il-learn"/></svg><h4>Prepare and get certified</h4><p>Crash courses with quizzes and a Scholio certificate.</p><span class="n">Open the Academy →</span></button>
     <button class="path" data-view="map"><svg class="il"><use href="#il-map"/></svg><h4>Explore the map</h4><p>Every award pinned to its campus. Zoom into a region and start there.</p><span class="n">Open the research map →</span></button>
   </div>
 
@@ -617,7 +611,7 @@ footer .links{display:flex;gap:12px;margin-left:auto}
 <section id="view-map" hidden>
   <div class="lead"><div class="kicker"><svg class="i s"><use href="#ic-map"/></svg>Research map</div><h2>Every award, pinned to its <em>campus</em></h2><p>Zoom into a region, click a pin for the listing. Blue pins are Master's, violet are PhD, split pins are both. Pins without a basemap still work if map tiles are blocked on your network.</p></div>
   <div class="mapwrap">
-    <div id="map"><div class="mapctl"><button aria-pressed="true" data-ml="">All</button><button aria-pressed="false" data-ml="Master's">Master's</button><button aria-pressed="false" data-ml="PhD">PhD</button><button aria-pressed="false" data-ml="checked">Verified</button></div><div class="note" id="map-note" hidden style="position:absolute;left:10px;bottom:10px;z-index:1000;max-width:320px">Map tiles are blocked on this network; pins still work. No API key is needed.</div><div class="mapattr">© <a href="https://www.openstreetmap.org/copyright" target="_blank" rel="noopener">OpenStreetMap</a> contributors</div></div>
+    <div id="map"><div class="mapctl"><button aria-pressed="true" data-ml="">All</button><button aria-pressed="false" data-ml="Master's">Master's</button><button aria-pressed="false" data-ml="PhD">PhD</button><button aria-pressed="false" data-ml="checked">Verified</button></div><div class="note" id="map-note" hidden style="position:absolute;left:10px;bottom:10px;z-index:1000;max-width:320px">Map tiles are blocked on this network; pins still work. No API key is needed.</div><div class="mapattr" id="map-attr">© <a href="https://www.openstreetmap.org/copyright" target="_blank" rel="noopener">OpenStreetMap</a> contributors</div></div>
     <div class="maplist" id="maplist"></div>
   </div>
 </section>
@@ -641,7 +635,7 @@ footer .links{display:flex;gap:12px;margin-left:auto}
 
 <!-- RANKINGS -->
 <section id="view-rank" hidden>
-  <div class="lead"><div class="kicker"><svg class="i s"><use href="#ic-chart"/></svg>University database</div><h2>Rankings, with the <em>funding</em> each university actually offers</h2><p>Indicative positions based on QS World University Rankings 2026, alongside the flagship scholarships we track and the Scholio applicant rating.</p></div>
+  <div class="lead"><div class="kicker"><svg class="i s"><use href="#ic-chart"/></svg>University database</div><h2>Rankings, with the <em>funding</em> each university actually offers</h2><p>Positions from QS 2026, THE 2025 and ARWU 2024, alongside the flagship scholarships we track at each university.</p></div>
   <div class="chips" style="margin-bottom:12px" id="rankchips"></div>
   <div class="tablewrap"><table id="ranktable"><thead><tr><th>QS 2026</th><th>THE 2025</th><th>ARWU 2024</th><th>University</th><th>Country</th><th>Flagship funding</th><th>Status</th><th></th></tr></thead><tbody></tbody></table></div>
   <p class="note" style="margin-top:12px">Sources: <a href="https://www.topuniversities.com/world-university-rankings" target="_blank" rel="noopener">QS 2026</a>, <a href="https://www.timeshighereducation.com/world-university-rankings" target="_blank" rel="noopener">THE 2025</a>, <a href="https://www.shanghairanking.com/rankings/arwu/2024" target="_blank" rel="noopener">ARWU 2024</a>. Positions are transcribed from the published tables; bands such as 101-150 are how the publisher reports them. Rows without a rank are institutions that fund every admitted graduate student. Report a mismatch via GitHub.</p>
@@ -695,7 +689,7 @@ footer .links{display:flex;gap:12px;margin-left:auto}
 
 <!-- ACADEMY -->
 <section id="view-academy" hidden>
-  <div class="lead"><div class="kicker"><svg class="i s"><use href="#ic-book"/></svg>Scholio Academy</div><h2>Short courses that close the exact gaps the <em>assessment</em> finds</h2><p>Lessons, a quiz after each one, and an Scholio certificate with a verifiable ID when you finish. Official test registration links first, because nothing replaces the real exam.</p></div>
+  <div class="lead"><div class="kicker"><svg class="i s"><use href="#ic-book"/></svg>Scholio Academy</div><h2>Short courses that close the exact gaps the <em>assessment</em> finds</h2><p>Lessons, a quiz after each one, and a Scholio certificate with a verifiable ID when you finish. Official test registration links first, because nothing replaces the real exam.</p></div>
   <div class="mono" style="margin-bottom:10px">Courses</div>
   <div class="courses" id="courses"></div>
   <div class="sp"></div>
@@ -889,7 +883,7 @@ footer .links{display:flex;gap:12px;margin-left:auto}
         <div class="step"><b>Attach the official link</b><span>Moderators verify against it before it goes live and set the "verified on" date.</span></div>
         <div class="step"><b>Publish, then roll over</b><span>Last cycle becomes the archive; clone and update dates.</span></div>
         <div class="step"><b>Sponsor readiness</b><span>Fund a course or a sprint and get first look at certificate holders.</span></div></div>
-      <div class="cta"><a class="btn primary" href="https://github.com/nirajbhusal/scholio/issues/new?title=New%20listing:%20&labels=listing&body=Scholarship%20name:%0AHost:%0ACountry:%0ALevel%20(Master%27s/PhD):%0AFields:%0ADeadline:%0AFunding%20(full/partial)%20and%20what%20it%20covers:%0AEnglish%20test:%0AAdmission%20needed%20first%3F:%0AWho%20may%20apply:%0AOfficial%20page%20URL:" target="_blank" rel="noopener">Submit a listing ↗</a></div>
+      <div class="cta"><a class="btn primary" href="https://github.com/nirajbhusal/scholio/issues/new?template=listing.yml" target="_blank" rel="noopener">Submit a listing ↗</a></div>
       <p class="note">Submissions open a form on GitHub; a moderator verifies the official page and publishes within a few days.</p></div>
   </div>
   <div class="sp"></div>
@@ -951,7 +945,7 @@ footer .links{display:flex;gap:12px;margin-left:auto}
 <section id="view-signup" hidden>
   <div class="signup">
     <div>
-      <div class="lead"><div class="kicker"><svg class="i s"><use href="#ic-user"/></svg>Your Scholio profile</div><h2>One profile. Every deadline, every fit score, <em>saved</em>.</h2><p>Accounts are coming soon. Leave your email and we will open your profile the day sign-up goes live. Your certificates and assessment already live in this browser.</p></div>
+      <div class="lead"><div class="kicker"><svg class="i s"><use href="#ic-user"/></svg>Your Scholio profile</div><h2>One profile. Every deadline, every fit score, <em>saved</em>.</h2><p>Accounts are coming soon. Until then, your saved awards, certificates and assessment live in this browser.</p></div>
       <svg viewBox="0 0 220 140" style="width:100%;max-width:340px;stroke:var(--accent);fill:none;stroke-width:1.4;stroke-linecap:round;stroke-linejoin:round;margin-bottom:20px"><use href="#il-signin"/></svg>
       <div class="perks">
         <div class="perk"><div class="ic"><svg class="i"><use href="#ic-bell"/></svg></div><div><b>Deadline alerts</b><span>Email or WhatsApp 14 and 3 days before each saved deadline, and when a new cycle opens.</span></div></div>
@@ -988,7 +982,6 @@ footer .links{display:flex;gap:12px;margin-left:auto}
 <div class="sheet" id="sheet" aria-hidden="true"><div class="back" id="sheet-back"></div>
   <div class="panel" role="dialog" aria-modal="true" aria-labelledby="d-title"><button class="close" id="sheet-close" aria-label="Close">×</button><div id="detail"></div></div></div>
 
-<script src="https://cdnjs.cloudflare.com/ajax/libs/leaflet/1.9.4/leaflet.js"></script>
 <script>
 const UNI = {
  "University of Cambridge":{the:5,arwu:4,rank:6,country:"United Kingdom",intl:"39%",fund:"Gates Cambridge, Cambridge Trust",code:"CAM",col:"#1d4ed8"},
@@ -1042,9 +1035,9 @@ const DATA = [
  {id:"adb",elig:{cit:"adb",route:"university",age:{"Master's":35}},lat:35.69,lng:139.76,checked:null,country:"Japan",region:"Asia",name:"ADB-Japan Scholarship Program",host:"Asian Development Bank",levels:["Master's"],fields:["Business & Economics","Science","Engineering & Tech","Humanities & Social"],deadline:null,window:"Apply to a participating university at least 6 months before the intake; deadlines vary",funding:"Full",who:"Citizens of ADB borrowing member countries with 2+ years' work experience, under 35",value:"Tuition, monthly allowance, housing, books, insurance, travel",english:"Per university",minEng:6.5,offerFirst:true,minGpa:3.3,research:0,apply:"https://www.adb.org/work-with-us/careers/japan-scholarship-program",note:"Universities in Japan, Singapore, Hong Kong, Australia, NZ, India, Pakistan, Philippines, Thailand and the US."},
  {id:"marie",elig:{cit:"any",route:"direct"},lat:50.85,lng:4.35,checked:null,country:"Europe (EU)",region:"Europe",name:"Marie Skłodowska-Curie Doctoral Networks",host:"European Commission (Horizon Europe)",levels:["PhD"],fields:["Any field"],deadline:null,window:"Positions advertised year-round on EURAXESS as each network recruits; most start between September and January",funding:"Full",who:"Any nationality; you must not have lived in the host country more than 12 months in the previous 3 years",value:"Employment contract with salary about EUR 3,400/month gross plus mobility and family allowances, 36 months",english:"Per host; no fixed test",minEng:6.5,offerFirst:false,minGpa:3.4,research:1,apply:"https://euraxess.ec.europa.eu/jobs/search?keywords=MSCA%20doctoral",note:"These are paid research jobs, not scholarships; apply to the specific network position."},
  {id:"daad-research",elig:{cit:"any",excl:["DE"],route:"direct"},lat:50.73,lng:7.1,checked:null,country:"Germany",region:"Europe",name:"DAAD Research Grants (Doctoral)",host:"DAAD",levels:["PhD"],fields:["Any field"],deadline:null,window:"Varies by country of origin; many close between September and November for the following year",funding:"Full",who:"Graduates from most countries outside Germany; check the DAAD database for your country",value:"EUR 1,300/month, travel, health insurance, German course, research allowance; up to 4 years",english:"Per host; German or English per project",minEng:6,offerFirst:true,minGpa:3.3,research:1,apply:"https://www.daad.de/en/study-and-research-in-germany/scholarships/",note:"A confirmed German supervisor is required before applying."},
- {id:"kas",elig:{cit:"any",excl:["DE"],route:"direct"},lat:52.52,lng:13.4,checked:null,country:"Germany",region:"Europe",name:"Konrad Adenauer Foundation Scholarships",host:"Konrad-Adenauer-Stiftung",levels:["Master's","PhD"],fields:["Any field"],deadline:null,window:"Opens around May, closes mid-July for the following academic year",funding:"Full",who:"International students under 30 with admission to a German university and a record of social or political engagement",value:"EUR 934/month (Master's) or 1,200/month (PhD), insurance subsidy, seminars",english:"German B2 usually required",minEng:6.5,offerFirst:true,minGpa:3.4,research:0,apply:"https://www.kas.de/en/web/begabtenfoerderung-und-kultur/scholarships",note:"Values-based foundation; engagement matters as much as grades."},
+ {id:"kas",elig:{cit:"any",excl:["DE"],route:"direct",age:{"Master's":30,PhD:30}},lat:52.52,lng:13.4,checked:null,country:"Germany",region:"Europe",name:"Konrad Adenauer Foundation Scholarships",host:"Konrad-Adenauer-Stiftung",levels:["Master's","PhD"],fields:["Any field"],deadline:null,window:"Opens around May, closes mid-July for the following academic year",funding:"Full",who:"International students under 30 with admission to a German university and a record of social or political engagement",value:"EUR 934/month (Master's) or 1,200/month (PhD), insurance subsidy, seminars",english:"German B2 usually required",minEng:6.5,offerFirst:true,minGpa:3.4,research:0,apply:"https://www.kas.de/en/web/begabtenfoerderung-und-kultur/scholarships",note:"Values-based foundation; engagement matters as much as grades."},
  {id:"heinrich",elig:{cit:"any",excl:["DE"],route:"direct"},lat:52.52,lng:13.4,checked:null,country:"Germany",region:"Europe",name:"Heinrich Böll Foundation Scholarships",host:"Heinrich-Böll-Stiftung",levels:["Master's","PhD"],fields:["Any field"],deadline:null,window:"Two rounds a year, closing 1 March and 1 September",funding:"Full",who:"International students admitted to a German university; priority for non-EU applicants in some programmes",value:"EUR 934/month (Master's) or 1,350/month (PhD), plus allowances and a seminar programme",english:"German B2 for most programmes",minEng:6.5,offerFirst:true,minGpa:3.4,research:0,apply:"https://www.boell.de/en/scholarships",note:"Green and social-justice engagement is a selection criterion."},
- {id:"goi",elig:{cit:"any",excl:["IE"],route:"nomination"},lat:53.35,lng:-6.26,checked:null,country:"Ireland",region:"Europe",name:"Government of Ireland International Education Scholarship",host:"Higher Education Authority",levels:["Master's","PhD"],fields:["Any field"],deadline:null,window:"Opens January, closes March for the following September",funding:"Full",who:"Non-EU/EEA nationals with an offer from an eligible Irish institution",value:"EUR 10,000 stipend plus full fee waiver for one year",english:"Per institution (IELTS 6.5)",minEng:6.5,offerFirst:true,minGpa:3.5,research:0,apply:"https://hea.ie/policy/internationalisation/government-of-ireland-international-education-scholarship-programme/",note:"About 60 awards a year; apply after you hold an offer."},
+ {id:"goi",elig:{cit:"any",excl:["IE","EEA"],route:"nomination"},lat:53.35,lng:-6.26,checked:null,country:"Ireland",region:"Europe",name:"Government of Ireland International Education Scholarship",host:"Higher Education Authority",levels:["Master's","PhD"],fields:["Any field"],deadline:null,window:"Opens January, closes March for the following September",funding:"Full",who:"Non-EU/EEA nationals with an offer from an eligible Irish institution",value:"EUR 10,000 stipend plus full fee waiver for one year",english:"Per institution (IELTS 6.5)",minEng:6.5,offerFirst:true,minGpa:3.5,research:0,apply:"https://hea.ie/policy/internationalisation/government-of-ireland-international-education-scholarship-programme/",note:"About 60 awards a year; apply after you hold an offer."},
  {id:"vlir",elig:{cit:"oda",route:"direct"},lat:50.85,lng:4.35,checked:null,country:"Belgium",region:"Europe",name:"VLIR-UOS Master's Scholarships",host:"Flemish Interuniversity Council",levels:["Master's"],fields:["Any field"],deadline:null,window:"Varies by programme; most close between November and February",funding:"Full",who:"Nationals and residents of a list of about 30 partner countries, under 35 (initial Master's) or 40 (advanced)",value:"Tuition, monthly allowance, travel, insurance, for ICP Master's programmes in Flanders",english:"Per programme (IELTS 6.5)",minEng:6.5,offerFirst:false,minGpa:3.2,research:0,apply:"https://www.vliruos.be/en/scholarships",note:"Apply to the programme; the scholarship decision follows admission."},
  {id:"invest",elig:{cit:"participating",route:"university"},lat:41.9,lng:12.5,checked:null,country:"Italy",region:"Europe",name:"Invest Your Talent in Italy",host:"Italian Ministry of Foreign Affairs",levels:["Master's"],fields:["Engineering & Tech","Business & Economics","Science","AI & Computing"],deadline:null,window:"Opens January, closes around March",funding:"Partial",who:"Citizens of about 20 listed countries (includes India, Vietnam, Indonesia, Türkiye, several in Africa and Latin America)",value:"EUR 8,000 a year for up to 2 years plus a company internship",english:"Per programme",minEng:6.5,offerFirst:false,minGpa:3.3,research:0,apply:"https://investyourtalentapplication.esteri.it/",note:"Includes an internship with an Italian company."},
  {id:"nawa",elig:{cit:"participating",route:"direct"},lat:52.23,lng:21.01,checked:null,country:"Poland",region:"Europe",name:"NAWA Banach and Poland My First Choice Scholarships",host:"Polish National Agency for Academic Exchange",levels:["Master's"],fields:["Engineering & Tech","Science","Business & Economics","Humanities & Social"],deadline:null,window:"Opens February or March, closes April or May",funding:"Full",who:"Citizens of listed developing countries (Banach) or Eastern Partnership states; check each programme",value:"Tuition and monthly stipend of about PLN 1,500 for the full Master's",english:"Per programme",minEng:6,offerFirst:false,minGpa:3.2,research:0,apply:"https://nawa.gov.pl/en/students",note:"Banach is run with the Polish development aid programme."},
@@ -1053,7 +1046,7 @@ const DATA = [
  {id:"kth",elig:{cit:"any",excl:["EEA"],route:"university"},lat:59.35,lng:18.07,checked:null,country:"Sweden",region:"Europe",name:"KTH Scholarship",host:"KTH Royal Institute of Technology",levels:["Master's"],fields:["Engineering & Tech","Science","AI & Computing"],deadline:null,window:"Opens 1 December, closes mid-January",funding:"Partial",who:"Non-EU/EEA fee-paying applicants to KTH Master's programmes",value:"Full tuition for the 2-year programme; no living costs",english:"IELTS 6.5",minEng:6.5,offerFirst:true,minGpa:3.6,research:0,apply:"https://www.kth.se/en/studies/master/scholarships",note:"Apply to KTH first through universityadmissions.se."},
  {id:"singa",elig:{cit:"any",route:"direct"},lat:1.3,lng:103.79,checked:null,country:"Singapore",region:"Asia",name:"Singapore International Graduate Award (SINGA)",host:"A*STAR with NUS, NTU, SUTD, SMU",levels:["PhD"],fields:["Science","Engineering & Tech","AI & Computing"],deadline:null,window:"Two intakes: closes 1 June (January start) and 1 December (August start)",funding:"Full",who:"Any nationality; strong bachelor's or master's in science or engineering",value:"Full tuition, SGD 2,700/month stipend (3,200 after qualifying exam), settling-in and airfare allowances, up to 4 years",english:"Per university; TOEFL/IELTS or GRE often required",minEng:6.5,offerFirst:false,minGpa:3.6,research:1,apply:"https://www.a-star.edu.sg/Scholarships/for-graduate-studies/singapore-international-graduate-award-singa",note:"Research in A*STAR institutes; interviews are online."},
  {id:"taiwan",elig:{cit:"any",excl:["CN"],route:"embassy"},lat:25.03,lng:121.56,checked:null,country:"Taiwan",region:"Asia",name:"Taiwan Scholarship (MOE)",host:"Ministry of Education, Taiwan",levels:["Master's","PhD"],fields:["Any field"],deadline:null,window:"Opens 1 February, closes 31 March in most countries",funding:"Full",who:"Most nationalities; apply through the Taiwan representative office in your country",value:"Tuition up to TWD 40,000 per semester plus TWD 20,000 (Master's) or 20,000+ (PhD) per month",english:"Per programme; many English-taught",minEng:6,offerFirst:false,minGpa:3.0,research:0,apply:"https://www.studyintaiwan.org/scholarships",note:"Apply to the university separately; the scholarship is confirmed with admission."},
- {id:"manaaki",elig:{cit:"oda",route:"direct"},lat:-41.29,lng:174.78,checked:null,country:"New Zealand",region:"Oceania",name:"Manaaki New Zealand Scholarships",host:"Ministry of Foreign Affairs and Trade",levels:["Master's","PhD"],fields:["Any field"],deadline:null,window:"Opens 1 February, closes 28 February (most countries) for the following year",funding:"Full",who:"Citizens of eligible Pacific, Asian, African, Latin American and Caribbean countries, with 2 years' experience",value:"Tuition, living allowance NZD 531/week, establishment, insurance, travel",english:"IELTS 6.5 (or 6.0 with pathway)",minEng:6,offerFirst:false,minGpa:3.0,research:0,apply:"https://www.nzscholarships.govt.nz/",note:"Must return home for 2 years after study."},
+ {id:"manaaki",elig:{cit:"oda",route:"direct",bond:true},lat:-41.29,lng:174.78,checked:null,country:"New Zealand",region:"Oceania",name:"Manaaki New Zealand Scholarships",host:"Ministry of Foreign Affairs and Trade",levels:["Master's","PhD"],fields:["Any field"],deadline:null,window:"Opens 1 February, closes 28 February (most countries) for the following year",funding:"Full",who:"Citizens of eligible Pacific, Asian, African, Latin American and Caribbean countries, with 2 years' experience",value:"Tuition, living allowance NZD 531/week, establishment, insurance, travel",english:"IELTS 6.5 (or 6.0 with pathway)",minEng:6,offerFirst:false,minGpa:3.0,research:0,apply:"https://www.nzscholarships.govt.nz/",note:"Must return home for 2 years after study."},
  {id:"melb",elig:{cit:"any",route:"automatic"},lat:-37.8,lng:144.96,checked:null,country:"Australia",region:"Oceania",name:"Melbourne Research Scholarship",host:"University of Melbourne",levels:["Master's","PhD"],fields:["Any field"],deadline:null,window:"Automatic with the graduate research application; rounds close 31 October (international) and 31 May",funding:"Full",who:"Any nationality admitted to a research degree",value:"AUD 38,500/yr stipend, full fee offset, relocation grant, health cover, up to 3.5 years",english:"IELTS 6.5 to 7.0",minEng:6.5,offerFirst:true,minGpa:3.7,research:1,apply:"https://scholarships.unimelb.edu.au/awards/graduate-research-scholarships",note:"Supervisor agreement needed before applying."},
  {id:"trudeau",elig:{cit:"any",route:"nomination"},lat:45.5,lng:-73.57,checked:null,country:"Canada",region:"North America",name:"Pierre Elliott Trudeau Foundation Scholarship",host:"Trudeau Foundation",levels:["PhD"],fields:["Humanities & Social"],deadline:null,window:"Universities nominate in December; foundation deadline typically mid-January",funding:"Full",who:"Doctoral students in humanities and social sciences at a Canadian university; up to a quarter can be international",value:"CAD 40,000/yr plus CAD 20,000/yr for travel and research, 3 years",english:"Per university; French or English",minEng:6.5,offerFirst:true,minGpa:3.8,research:1,apply:"https://www.trudeaufoundation.ca/",note:"Nomination by your Canadian university is required."},
  {id:"ontario",elig:{cit:"any",excl:["CA"],route:"nomination"},lat:43.66,lng:-79.4,checked:null,country:"Canada",region:"North America",name:"Ontario Trillium Scholarship",host:"Ontario universities",levels:["PhD"],fields:["Any field"],deadline:null,window:"Nominated by the university after you apply; programme deadlines December to February",funding:"Full",who:"International PhD applicants to Ontario universities",value:"CAD 40,000/yr for 4 years",english:"Per university",minEng:6.5,offerFirst:true,minGpa:3.8,research:1,apply:"https://www.ontario.ca/page/ontario-trillium-scholarship",note:"No direct application; departments nominate top international candidates."},
@@ -1062,8 +1055,8 @@ const DATA = [
  {id:"mastercard",elig:{cit:"oda",route:"university"},lat:-1.29,lng:36.82,checked:null,country:"Multiple (partner universities)",region:"Africa",name:"Mastercard Foundation Scholars Program",host:"Partner universities in Africa, North America and Europe",levels:["Master's"],fields:["Any field"],deadline:null,window:"Each partner university runs its own round; most close between December and March",funding:"Full",who:"Young Africans from economically disadvantaged backgrounds with a record of leadership and service",value:"Tuition, living, travel, books, mentorship and leadership programme",english:"Per university",minEng:6,offerFirst:false,minGpa:3.2,research:0,apply:"https://mastercardfdn.org/en/what-we-do/our-programs/mastercard-foundation-scholars-program/",note:"Apply through a partner university such as Toronto, McGill, Edinburgh, Oxford, Ashesi or Makerere."},
  {id:"agakhan",elig:{cit:"participating",route:"direct"},lat:46.2,lng:6.14,checked:null,country:"Multiple",region:"Africa",name:"Aga Khan Foundation International Scholarship",host:"Aga Khan Foundation",levels:["Master's","PhD"],fields:["Any field"],deadline:null,window:"Opens January, closes 31 March in most countries",funding:"Partial",who:"Outstanding students from listed countries in Asia, Africa and the Middle East with no other means",value:"50% grant and 50% loan covering tuition and living, Master's priority",english:"Per university",minEng:6.5,offerFirst:true,minGpa:3.5,research:0,apply:"https://the.akdn/en/how-we-work/our-agencies/aga-khan-foundation/akf-scholarships",note:"Admission to a reputable university is needed before applying."},
  {id:"jasso",elig:{cit:"any",excl:["JP"],route:"university"},lat:35.68,lng:139.69,checked:null,country:"Japan",region:"Asia",name:"JASSO Monbukagakusho Honors Scholarship",host:"Japan Student Services Organization",levels:["Master's","PhD"],fields:["Any field"],deadline:null,window:"Recommended by your Japanese university after enrolment; rounds in April and October",funding:"Partial",who:"Privately financed international students enrolled in Japan",value:"JPY 48,000/month for 6 or 12 months",english:"Not applicable",minEng:0,offerFirst:true,minGpa:3.3,research:0,apply:"https://www.jasso.go.jp/en/ryugaku/scholarship_j/shougakukin/honors.html",note:"Apply through the international office after you arrive."},
- {id:"brunei",elig:{cit:"participating",route:"direct"},lat:4.94,lng:114.95,checked:null,country:"Brunei",region:"Asia",name:"Brunei Darussalam Government Scholarship",host:"Ministry of Foreign Affairs, Brunei",levels:["Master's"],fields:["Any field"],deadline:null,window:"Opens around December, closes mid-February",funding:"Full",who:"Citizens of ASEAN, Commonwealth and OIC member countries, aged 18 to 35",value:"Tuition, BND 500/month allowance, accommodation, meals allowance, airfare, insurance",english:"IELTS 6.0 / TOEFL 550",minEng:6,offerFirst:false,minGpa:3.0,research:0,apply:"https://www.mfa.gov.bn/Pages/BDGS.aspx",note:"Places at UBD, UTB, UNISSA and KUPU SB."},
- {id:"mis",elig:{cit:"participating",excl:["MY"],route:"direct"},lat:3.14,lng:101.69,checked:null,country:"Malaysia",region:"Asia",name:"Malaysia International Scholarship (MIS)",host:"Ministry of Higher Education, Malaysia",levels:["Master's","PhD"],fields:["Engineering & Tech","Science","AI & Computing","Business & Economics","Humanities & Social"],deadline:null,window:"Opens around April or May, closes within about a month",funding:"Full",who:"Citizens of listed countries under 40 (Master's) or 45 (PhD) with an offer from a Malaysian university",value:"Tuition plus MYR 1,500/month allowance",english:"IELTS 6.0 / TOEFL 60",minEng:6,offerFirst:true,minGpa:3.5,research:0,apply:"https://biasiswa.mohe.gov.my/INTER/",note:"Admission offer required before applying."}
+ {id:"brunei",elig:{cit:"participating",route:"direct",age:{"Master's":35}},lat:4.94,lng:114.95,checked:null,country:"Brunei",region:"Asia",name:"Brunei Darussalam Government Scholarship",host:"Ministry of Foreign Affairs, Brunei",levels:["Master's"],fields:["Any field"],deadline:null,window:"Opens around December, closes mid-February",funding:"Full",who:"Citizens of ASEAN, Commonwealth and OIC member countries, aged 18 to 35",value:"Tuition, BND 500/month allowance, accommodation, meals allowance, airfare, insurance",english:"IELTS 6.0 / TOEFL 550",minEng:6,offerFirst:false,minGpa:3.0,research:0,apply:"https://www.mfa.gov.bn/Pages/BDGS.aspx",note:"Places at UBD, UTB, UNISSA and KUPU SB."},
+ {id:"mis",elig:{cit:"participating",excl:["MY"],route:"direct",age:{"Master's":40,PhD:45}},lat:3.14,lng:101.69,checked:null,country:"Malaysia",region:"Asia",name:"Malaysia International Scholarship (MIS)",host:"Ministry of Higher Education, Malaysia",levels:["Master's","PhD"],fields:["Engineering & Tech","Science","AI & Computing","Business & Economics","Humanities & Social"],deadline:null,window:"Opens around April or May, closes within about a month",funding:"Full",who:"Citizens of listed countries under 40 (Master's) or 45 (PhD) with an offer from a Malaysian university",value:"Tuition plus MYR 1,500/month allowance",english:"IELTS 6.0 / TOEFL 60",minEng:6,offerFirst:true,minGpa:3.5,research:0,apply:"https://biasiswa.mohe.gov.my/INTER/",note:"Admission offer required before applying."}
 ];
 const COUNTRIES = [
  {c:"United Kingdom",u:[["Cambridge","Gates, Cambridge Trust"],["Oxford","Rhodes, Clarendon"],["Imperial","President's PhD"],["Edinburgh","Global Research"]]},
@@ -1086,45 +1079,20 @@ const COUNTRIES = [
 
 const TODAY=new Date();
 const $=s=>document.querySelector(s);
-const state={chip:"",chips:new Set(),q:"",level:"",field:"",region:"",fund:"",sort:"deadline"};
-const LEVEL_ORDER={"Bachelor's":0,"Master's":1,"PhD":2};
+const state={chips:new Set(),q:"",level:"",field:"",region:"",fund:"",sort:"deadline"};
 const daysLeft=d=>d.deadline?Math.ceil((new Date(d.deadline+"T23:59:00Z")-TODAY)/86400000):9999;
 const fmtDate=iso=>iso?new Date(iso+"T00:00:00").toLocaleDateString("en-GB",{day:"numeric",month:"short",year:"numeric"}):"";
 const dlLabel=d=>{if(!d.deadline)return"Window";const n=daysLeft(d);return n<0?"Closed":n===0?"Today":n+" days"};
+/* dlLabel as a phrase: "12 days left", "Closes today", "Closed", "Annual window" */
+const leftLabel=d=>{if(!d.deadline)return"Annual window";const n=daysLeft(d);return n<0?"Closed":n===0?"Closes today":n+" days left"};
+/* sort key: open dated awards by days left, then annual windows, then closed (most recently closed first) */
+const dueKey=d=>{const n=daysLeft(d);return n<0?10000-n:n};
 const dlClass=d=>{if(!d.deadline)return"";const n=daysLeft(d);return n<=14?"no":n<=30?"warn":"ok"};
 const noTest=d=>d.minEng===0;
-const stars=r=>"★".repeat(Math.round(r))+"☆".repeat(5-Math.round(r));
 const uni=d=>UNI[d.host]||{code:d.country.slice(0,3).toUpperCase(),col:"#64748b",rank:null};
 const rankOf=d=>uni(d).rank??999;
 
 /* discover */
-function renderChips(){
-  const chips=[["","All"],["soon","Closing in 30 days"],["noielts","No English test"],["nooffer","No admission first"],["top50","Top-50 university"],["full","Fully funded"]];
-  $("#chips").innerHTML=chips.map(([v,l])=>`<button class="chip" aria-pressed="${state.chip===v}" data-chip="${v}">${l}</button>`).join("");
-}
-function filtered(){
-  let list=DATA.filter(d=>{
-    const hay=(d.country+" "+d.region+" "+d.name+" "+d.host+" "+d.fields.join(" ")).toLowerCase();
-    if(state.q&&!hay.includes(state.q.toLowerCase()))return false;
-    if(state.level&&!d.levels.includes(state.level))return false;
-    if(state.field&&!(d.fields.includes(state.field)||d.fields.includes("Any field")))return false;
-    if(state.region&&d.region!==state.region)return false;
-    if(state.fund&&d.funding!==state.fund)return false;
-    if(state.chip==="soon"&&daysLeft(d)>30)return false;
-    if(state.chip==="noielts"&&!noTest(d))return false;
-    if(state.chip==="nooffer"&&d.offerFirst)return false;
-    if(state.chip==="top50"&&rankOf(d)>50)return false;
-    if(state.chip==="full"&&d.funding!=="Full")return false;
-    return true;});
-  const S={deadline:(a,b)=>daysLeft(a)-daysLeft(b),rank:(a,b)=>rankOf(a)-rankOf(b),country:(a,b)=>a.country.localeCompare(b.country)};
-  return list.sort(S[state.sort]);
-}
-function renderStats(){
-  const open=DATA.filter(d=>daysLeft(d)>=0);
-  $("#st-count").textContent=open.length;$("#st-soon").textContent=open.filter(d=>daysLeft(d)<=30).length;
-  $("#st-countries").textContent=new Set(DATA.map(d=>d.country)).size;
-  $("#st-value").textContent=(DATA.reduce((s,d)=>s+d.rating,0)/DATA.length).toFixed(1);
-}
 function renderGrid(){
   const list=filtered();
   $("#count").textContent=list.length+" of "+DATA.length+" listings";
@@ -1135,29 +1103,28 @@ function renderGrid(){
     <div class="due ${dlClass(d)}">${d.deadline?`<b>${dlLabel(d)}</b><small>${daysLeft(d)>=0?"left · ":""}${fmtDate(d.deadline)}</small>`:`<b style="font-size:15px;color:var(--muted)">Typical window</b><small>${d.window}</small>`}</div></button>`}).join("")||`<p class="note">No listings match. Clear a filter or two.</p>`;
 }
 function openDetail(id){
-  const d=DATA.find(x=>x.id===id);const u=uni(d);
-  
+  const d=DATA.find(x=>x.id===id);if(!d)return;const u=uni(d);
   $("#detail").innerHTML=`<div style="display:flex;gap:12px;align-items:center;margin-top:24px"><div class="flagic" style="background:${u.col}">${u.code}</div><div><div class="mono" style="color:var(--accent)">${d.country} · ${d.region}${u.rank?" · QS #"+u.rank:""}</div><h2 id="d-title" style="margin:2px 0 0">${d.name}</h2></div></div>
     <div class="sub" style="margin-top:8px">${d.host} · ${d.levels.join(" / ")} · ${d.funding==="Full"?"Fully funded":"Partial"}</div>
     <div class="deadline-big">${d.deadline?`<b>${dlLabel(d)}</b><span>${daysLeft(d)>=0?"left. ":""}Deadline ${fmtDate(d.deadline)}. ${d.deadlineNote}.</span>`:`<b style="font-size:20px">Typical window</b><span>${d.window}. Exact dates are set each cycle; check the official page.</span>`}</div>
-    <dl><dt>Who may apply</dt><dd>${d.who}</dd><dt>Fields</dt><dd>${d.fields.join(", ")}</dd><dt>Covers</dt><dd>${d.value}</dd><dt>English</dt><dd>${d.english}</dd><dt>Indicative GPA</dt><dd>${d.minGpa}+ on 4.0 (our estimate of a competitive profile, not an official cut-off)</dd><dt>Admission first?</dt><dd>${d.offerFirst?"Yes. Offer or supervisor needed before the scholarship application.":"No. One application covers both."}</dd><dt>Good to know</dt><dd>${d.note}</dd><dt>Checked</dt><dd>${d.checked?"Deadline and terms checked on the official page on "+fmtDate(d.checked)+".":"Not yet verified on the official page; confirm the deadline and terms there before applying."} <a href="https://github.com/nirajbhusal/scholio/issues/new?title=Correction:%20"+encodeURIComponent(d.name)+"&labels=correction" target="_blank" rel="noopener">Report a correction</a></dd></dl>
+    <dl><dt>Who may apply</dt><dd>${d.who}</dd><dt>Fields</dt><dd>${d.fields.join(", ")}</dd><dt>Covers</dt><dd>${d.value}</dd><dt>English</dt><dd>${d.english}</dd><dt>Indicative GPA</dt><dd>${d.minGpa}+ on 4.0 (our estimate of a competitive profile, not an official cut-off)</dd><dt>Admission first?</dt><dd>${d.offerFirst?"Yes. Offer or supervisor needed before the scholarship application.":"No. One application covers both."}</dd><dt>Good to know</dt><dd>${d.note}</dd><dt>Checked</dt><dd>${d.checked?"Deadline and terms checked on the official page on "+fmtDate(d.checked)+".":"Not yet verified on the official page; confirm the deadline and terms there before applying."} <a href="https://github.com/nirajbhusal/scholio/issues/new?template=correction.yml&title=${encodeURIComponent("Correction: "+d.name)}&award=${encodeURIComponent(d.name)}" target="_blank" rel="noopener">Report a correction</a></dd></dl>
     <div class="cta"><a class="btn primary" href="${d.apply}" target="_blank" rel="noopener">Official page ↗</a><button class="btn" type="button" id="d-link" title="Copy a link to this award"><svg class="i s"><use href="#ic-share"/></svg>Link</button><button class="btn" type="button" id="d-check">Check my fit</button><button class="btn" type="button" id="d-cmp"><svg class="i s"><use href="#ic-layers"/></svg>${cmpHas(d.id)?"In compare":"Compare"}</button><button class="btn" type="button" id="d-save"><svg class="i s"><use href="#ic-star"/></svg>${isSaved(d.id)?"Saved":"Save"}</button><button class="btn" type="button" data-track="${d.id}"><svg class="i s"><use href="#ic-check"/></svg>${trkGet()[d.id]?"Tracking ✓":"Track"}</button><button class="btn" type="button" id="d-ics"><svg class="i s"><use href="#ic-cal"/></svg>Add deadline to calendar</button></div>
     <h3 style="font-size:18px;margin:8px 0 10px">Applicant reviews</h3><p class="note">No reviews yet. If you applied to or were awarded this scholarship, share what you learned. Reviews are published after a check that they come from real applicants.</p><div class="cta" style="margin-top:10px"><a class="btn sm" href="https://github.com/nirajbhusal/scholio/issues/new?title=Review:%20${encodeURIComponent(d.name)}&labels=review&body=${encodeURIComponent("Applied / awarded (year):\n\nWhat helped most:\n\nWhat I wish I had known:\n\nRating out of 5:")}" target="_blank" rel="noopener">Write a review ↗</a></div>`;
   $("#sheet").classList.add("open");$("#sheet").setAttribute("aria-hidden","false");
-  $("#d-check").onclick=()=>{closeDetail();switchView("assess")};$("#d-link").onclick=e=>{const url="https://nirajbhusal.github.io/scholio/award/"+d.id+"/";navigator.clipboard?.writeText(url).then(()=>e.currentTarget.textContent="Copied").catch(()=>{})};
+  $("#d-check").onclick=()=>{closeDetail();switchView("assess")};$("#d-link").onclick=e=>{const b=e.currentTarget;const url="https://nirajbhusal.github.io/scholio/award/"+d.id+"/";navigator.clipboard?.writeText(url).then(()=>b.textContent="Copied").catch(()=>{})};
   $("#d-save").onclick=e=>{toggleSave(d.id);e.currentTarget.innerHTML=`<svg class="i s"><use href="#ic-star"/></svg>${isSaved(d.id)?"Saved":"Save"}`;renderMyCerts()};$("#d-ics").onclick=()=>downloadICS(d);$("#d-cmp").onclick=e=>{cmpToggle(d.id);e.currentTarget.innerHTML=`<svg class="i s"><use href="#ic-layers"/></svg>${cmpHas(d.id)?"In compare":"Compare"}`;renderCmpBar()};if(!d.deadline)$("#d-ics").hidden=true;
 }
 function closeDetail(){$("#sheet").classList.remove("open");$("#sheet").setAttribute("aria-hidden","true")}
 
 /* countries + infographics */
 function renderCountries(){
-  const cnt=COUNTRIES.map(c=>[c.c,DATA.filter(d=>d.country===c.c&&daysLeft(d)>=0).length]).sort((a,b)=>b[1]-a[1]);const max=Math.max(1,...cnt.map(x=>x[1]));
+  const open=DATA.filter(d=>daysLeft(d)>=0);const cnt=COUNTRIES.map(c=>[c.c,open.filter(d=>d.country===c.c).length]).sort((a,b)=>b[1]-a[1]);const max=Math.max(1,...cnt.map(x=>x[1]));
   $("#savesbar").innerHTML=cnt.map(([c,n])=>`<div class="infobar"><span>${c}</span><div class="bar"><i style="width:${n/max*100}%"></i></div><b>${n}</b></div>`).join("");
-  const segs=[["Full · PhD",DATA.filter(d=>d.funding==="Full"&&d.levels.includes("PhD")&&!d.levels.includes("Master's")).length,"#2563eb"],["Full · Master's",DATA.filter(d=>d.funding==="Full"&&d.levels.includes("Master's")&&!d.levels.includes("PhD")).length,"#7c3aed"],["Full · both",DATA.filter(d=>d.funding==="Full"&&d.levels.length>1).length,"#10b981"],["Partial",DATA.filter(d=>d.funding!=="Full").length,"#f59e0b"]];
+  const segs=[["Full · PhD",open.filter(d=>d.funding==="Full"&&d.levels.includes("PhD")&&!d.levels.includes("Master's")).length,"#2563eb"],["Full · Master's",open.filter(d=>d.funding==="Full"&&d.levels.includes("Master's")&&!d.levels.includes("PhD")).length,"#7c3aed"],["Full · both",open.filter(d=>d.funding==="Full"&&d.levels.length>1).length,"#10b981"],["Partial",open.filter(d=>d.funding!=="Full").length,"#f59e0b"]];
   const tot=segs.reduce((s,x)=>s+x[1],0);let acc=0;const C=2*Math.PI*44;
-  $("#donut").innerHTML=segs.map(([l,n,c])=>{const len=n/tot*C;const el=`<circle cx="60" cy="60" r="44" fill="none" stroke="${c}" stroke-width="16" stroke-dasharray="${len} ${C-len}" stroke-dashoffset="${-acc}" transform="rotate(-90 60 60)"/>`;acc+=len;return el}).join("")+`<text x="60" y="65" text-anchor="middle" font-weight="800" font-size="20" fill="#0f172a">${tot}</text>`;
+  $("#donut").innerHTML=segs.map(([l,n,c])=>{const len=n/tot*C;const el=`<circle cx="60" cy="60" r="44" fill="none" stroke="${c}" stroke-width="16" stroke-dasharray="${len} ${C-len}" stroke-dashoffset="${-acc}" transform="rotate(-90 60 60)"/>`;acc+=len;return el}).join("")+`<text x="60" y="65" text-anchor="middle" font-weight="800" font-size="20" fill="currentColor">${tot}</text>`;
   $("#donut-legend").innerHTML=segs.map(([l,n,c])=>`<div style="display:flex;gap:8px;align-items:center"><i style="width:10px;height:10px;border-radius:3px;background:${c};display:inline-block"></i>${l}<b style="margin-left:auto">${n}</b></div>`).join("");
-  $("#cgrid").innerHTML=COUNTRIES.map(c=>{const n=DATA.filter(d=>d.country===c.c).length;return `<button class="cc" data-c="${c.c}"><div class="hd"><div class="ic" style="width:36px;height:36px;border-radius:10px;background:var(--accent-soft);color:var(--accent);display:grid;place-items:center"><svg class="i" style="width:18px;height:18px"><use href="#ic-globe"/></svg></div><div><h3>${c.c}</h3><div class="n">${n} open listing${n===1?"":"s"} · ${c.u.length} universities tracked</div></div></div><ul>${c.u.map(([u,s])=>`<li>${u}<span>${s}</span></li>`).join("")}</ul></button>`}).join("");
+  $("#cgrid").innerHTML=COUNTRIES.map(c=>{const n=open.filter(d=>d.country===c.c).length;return `<button class="cc" data-c="${c.c}"><div class="hd"><div class="ic" style="width:36px;height:36px;border-radius:10px;background:var(--accent-soft);color:var(--accent);display:grid;place-items:center"><svg class="i" style="width:18px;height:18px"><use href="#ic-globe"/></svg></div><div><h3>${c.c}</h3><div class="n">${n} open listing${n===1?"":"s"} · ${c.u.length} universities tracked</div></div></div><ul>${c.u.map(([u,s])=>`<li>${u}<span>${s}</span></li>`).join("")}</ul></button>`}).join("");
 }
 
 /* rankings */
@@ -1173,7 +1140,6 @@ function renderRank(){
 /* assessment */
 const clamp=(x,a,b)=>Math.max(a,Math.min(b,x));
 function profile(){return{nat:$("#p-nat").value,age:+$("#p-age").value||0,lead:+$("#p-lead").value||0,fund:$("#p-fund").value,dest:$("#p-dest").value,want:$("#p-want").value,degree:$("#p-degree").value,gpa:+$("#p-gpa").value||0,field:$("#p-field").value,pubs:+$("#p-pubs").value||0,exp:+$("#p-exp").value||0,eng:+$("#p-ielts").value,docs:+$("#p-docs").value,offer:$("#p-offer").checked}}
-function dims(p){const phd=p.want==="PhD";return{Academics:clamp((p.gpa-2.5)/1.5*100,0,100),Research:clamp(p.pubs*(phd?35:45)+(phd?0:20),0,100),Experience:clamp(p.exp*20,0,100),English:p.eng===0?0:clamp((p.eng-5.5)/2*100,0,100),Readiness:clamp(p.docs*28+(p.offer?16:0),0,100)}}
 function renderAssess(){
   const p=profile();const S=scholioScore(p);const score=S.total;
   $("#score").textContent=score;$("#ring").style.setProperty("--p",score);
@@ -1208,7 +1174,7 @@ function renderAssess(){
     const [cl,ct]=competitiveness(x.d);
     out+=`<div class="res ${x.st}"><div><b>${x.d.country}: ${x.d.name}</b><div style="display:flex;gap:6px;flex-wrap:wrap;margin:6px 0 2px"><span class="tag ${ct}">${cl}</span><span class="tag">${ROUTE[x.el.route]}</span>${x.el.bond?'<span class="tag warn">Return-home bond</span>':""}${x.d.checked?'<span class="tag ok">Verified</span>':""}</div><ul>${x.r.map(t=>`<li>${t}</li>`).join("")}</ul><div class="cta" style="margin:8px 0 0"><button class="btn sm" type="button" data-open="${x.d.id}">View</button></div></div><div class="fit">${x.el.ok?x.fit:"–"}<small>${x.el.ok?"fit · ":""}${x.d.deadline?fmtDate(x.d.deadline):"annual"}</small></div></div>`});
   $("#results").innerHTML=out||`<p class="note">No awards match this region and funding filter. Widen "Where would you go" or allow partial funding.</p>`;
-  const cp=$("#score-copy");if(cp)cp.onclick=e=>{const t=`My Scholio Score: ${score}/100 (${S.band}), ID ${S.id}, v${SCORE_V}. Checked at scholio: https://nirajbhusal.github.io/scholio/score/`;navigator.clipboard?.writeText(t).then(()=>e.currentTarget.textContent="Copied").catch(()=>{})};
+  const cp=$("#score-copy");if(cp)cp.onclick=e=>{const b=e.currentTarget;const t=`My Scholio Score: ${score}/100 (${S.band}), ID ${S.id}, v${SCORE_V}. Checked at scholio: https://nirajbhusal.github.io/scholio/score/`;navigator.clipboard?.writeText(t).then(()=>b.textContent="Copied").catch(()=>{})};
 }
 
 /* ---------- courses ---------- */
@@ -1264,7 +1230,7 @@ const COURSES=[
 ];
 
 /* ---------- storage ---------- */
-const store={get(k,d){try{const v=localStorage.getItem(k);return v?JSON.parse(v):d}catch(e){return d}},set(k,v){try{localStorage.setItem(k,JSON.stringify(v))}catch(e){}}};
+const store={get(k,d){try{const v=localStorage.getItem(k);return v?JSON.parse(v):d}catch(e){return d}},set(k,v){try{localStorage.setItem(k,JSON.stringify(v));return true}catch(e){return false}}};
 
 /* ---------- filters (segmented + toggles) ---------- */
 const TOGGLES=[["soon","ic-clock","Closing in 30 days"],["noielts","ic-lang","No English test"],["nooffer","ic-key","No admission first"],["top50","ic-trophy","Top-50 university"],["full","ic-money","Fully funded"],["checked","ic-check","Verified on official page"]];
@@ -1284,14 +1250,14 @@ function filtered(){
     if(state.field&&!(d.fields.includes(state.field)||d.fields.includes("Any field")))return false;
     if(state.region&&d.region!==state.region)return false;
     if(state.fund&&d.funding!==state.fund)return false;
-    if(has("soon")&&daysLeft(d)>30)return false;
+    if(has("soon")&&!(daysLeft(d)>=0&&daysLeft(d)<=30))return false;
     if(has("noielts")&&!noTest(d))return false;
     if(has("nooffer")&&d.offerFirst)return false;
     if(has("top50")&&rankOf(d)>50)return false;
     if(has("full")&&d.funding!=="Full")return false;
     if(has("checked")&&!d.checked)return false;
     return true;});
-  const S={deadline:(a,b)=>daysLeft(a)-daysLeft(b),rank:(a,b)=>rankOf(a)-rankOf(b),country:(a,b)=>a.country.localeCompare(b.country)};
+  const S={deadline:(a,b)=>dueKey(a)-dueKey(b),rank:(a,b)=>rankOf(a)-rankOf(b)||dueKey(a)-dueKey(b),country:(a,b)=>a.country.localeCompare(b.country)||dueKey(a)-dueKey(b)};
   return list.sort(S[state.sort]);
 }
 function countUp(el,to){const from=+el.dataset.n||0;el.dataset.n=to;const t0=performance.now();const step=t=>{const k=Math.min(1,(t-t0)/700);el.textContent=Math.round(from+(to-from)*(1-Math.pow(1-k,3)));if(k<1)requestAnimationFrame(step)};requestAnimationFrame(step)}
@@ -1306,7 +1272,7 @@ function clearFilters(){state.chips.clear();state.level="";state.field="";state.
 let stripI=0,stripT;
 function renderStrip(){
   const soon=DATA.filter(d=>d.deadline&&daysLeft(d)>=0).sort((a,b)=>daysLeft(a)-daysLeft(b)).slice(0,6);
-  $("#strip").innerHTML=soon.map((d,i)=>`<div class="${i===0?"on":""}" data-id="${d.id}"><b>${dlLabel(d)}${daysLeft(d)>=0?" left":""}</b><span>${d.name}, ${d.country}</span><span style="color:#93c5fd">· ${fmtDate(d.deadline)}</span></div>`).join("");
+  $("#strip").innerHTML=soon.map((d,i)=>`<div class="${i===0?"on":""}" data-id="${d.id}"><b>${leftLabel(d)}</b><span>${d.name}, ${d.country}</span><span style="color:#93c5fd">· ${fmtDate(d.deadline)}</span></div>`).join("");
   const n=soon.length;const go=()=>{const els=$("#strip").children;if(!els.length)return;els[stripI].classList.remove("on");stripI=(stripI+1)%n;els[stripI].classList.add("on")};
   clearInterval(stripT);stripT=setInterval(go,3500);$("#strip-next").onclick=()=>{go();clearInterval(stripT);stripT=setInterval(go,3500)};
   $("#strip").onclick=e=>{const el=e.target.closest("[data-id]");if(el&&el.classList.contains("on"))openDetail(el.dataset.id)};
@@ -1318,7 +1284,7 @@ function suggestions(q){
   q=q.trim().toLowerCase();if(q.length<2)return[];
   const out=[];
   DATA.filter(d=>(d.name+" "+d.host+" "+d.country).toLowerCase().includes(q)).slice(0,5).forEach(d=>out.push({g:"Scholarships",ic:"ic-cap",t:d.name,s:d.country+" · "+dlLabel(d),act:()=>openDetail(d.id)}));
-  COUNTRIES.filter(c=>c.c.toLowerCase().includes(q)).slice(0,3).forEach(c=>out.push({g:"Countries",ic:"ic-globe",t:c.c,s:c.saves.toLocaleString()+" saves",act:()=>{state.q=c.c;$("#q").value=c.c;renderChips();renderGrid();scrollToId("catalogue")}}));
+  COUNTRIES.filter(c=>c.c.toLowerCase().includes(q)).slice(0,3).forEach(c=>out.push({g:"Countries",ic:"ic-globe",t:c.c,s:(n=>n+" listing"+(n===1?"":"s"))(DATA.filter(d=>d.country===c.c).length),act:()=>{state.q=c.c;$("#q").value=c.c;renderChips();renderGrid();scrollToId("catalogue")}}));
   Object.entries(UNI).filter(([n])=>n.toLowerCase().includes(q)).slice(0,3).forEach(([n,u])=>out.push({g:"Universities",ic:"ic-building",t:n,s:u.rank?"QS #"+u.rank:"Unranked",act:()=>{switchView("rank")}}));
   COURSES.filter(c=>c.t.toLowerCase().includes(q)).slice(0,2).forEach(c=>out.push({g:"Academy",ic:"ic-book",t:c.t,s:c.lvl,act:()=>openCourse(c.id)}));
   ["AI & Computing","Engineering & Tech","Science","Humanities & Social","Business & Economics"].filter(f=>f.toLowerCase().includes(q)).forEach(f=>out.push({g:"Fields",ic:"ic-layers",t:f,s:"filter",act:()=>{state.field=f;$("#f-field").value=f;state.q="";$("#q").value="";renderChips();renderGrid();scrollToId("catalogue")}}));
@@ -1348,11 +1314,11 @@ function computeFit(p){
 }
 function renderForYou(){
   const p=store.get("sc_profile",null);const wrap=$("#foryou-wrap");
-  if(!p){wrap.hidden=true;return}
+  if(!p||p.done===false){wrap.hidden=true;return}
   const rows=computeFit(p).slice(0,3);wrap.hidden=!rows.length;
-  $("#foryou").innerHTML=rows.map(r=>`<button class="fy" data-open="${r.d.id}"><div class="top"><span class="tag acc">${r.d.country}</span><span class="fit">${r.fit}</span></div><h4>${r.d.name}</h4><small>${r.d.host} · ${dlLabel(r.d)} left</small></button>`).join("");
+  $("#foryou").innerHTML=rows.map(r=>`<button class="fy" data-open="${r.d.id}"><div class="top"><span class="tag acc">${r.d.country}</span><span class="fit">${r.fit}</span></div><h4>${r.d.name}</h4><small>${r.d.host} · ${leftLabel(r.d)}</small></button>`).join("");
 }
-function saveProfile(){store.set("sc_profile",profile())}
+function saveProfile(){store.set("sc_profile",{...profile(),done:wdone})}
 function loadProfile(){const p=store.get("sc_profile",null);if(!p)return;if(p.nat)$("#p-nat").value=p.nat;if(p.age)$("#p-age").value=p.age;$("#p-lead").value=p.lead??1;$("#p-fund").value=p.fund||"";$("#p-dest").value=p.dest||"";$("#p-want").value=p.want;$("#p-degree").value=p.degree;$("#p-gpa").value=p.gpa;$("#p-field").value=p.field;$("#p-pubs").value=p.pubs;$("#p-exp").value=p.exp;$("#p-ielts").value=p.eng;$("#p-docs").value=p.docs;$("#p-offer").checked=p.offer}
 
 /* ---------- academy ---------- */
@@ -1397,11 +1363,11 @@ function showCert(id){
   const cert=store.get("sc_certs",[]).find(x=>x.id===id);if(!cert)return;
   const d=new Date(cert.date+"T00:00:00").toLocaleDateString("en-GB",{day:"numeric",month:"long",year:"numeric"});
   $("#cert-card").innerHTML=`<div class="certificate" id="certdom"><div class="hd"><div style="display:flex;gap:10px;align-items:center;font-weight:800;font-size:18px"><svg class="mascot" width="36" height="36" viewBox="0 0 100 100"><use href="#logo"/></svg><span>Schol<span style="color:var(--accent)">io</span> Academy</span></div><div class="seal"><div>VERIFIED<br>SC</div></div></div>
-   <div class="title">Certificate of completion</div><h2>${cert.title}</h2><p style="color:var(--muted);margin:0">is awarded to</p><div class="name">${cert.name}</div><p style="margin:0;max-width:60ch;color:var(--muted)">for completing all lessons and passing every lesson quiz of the Scholio Academy course.</p>
+   <div class="title">Certificate of completion</div><h2>${cert.title}</h2><p style="color:var(--muted);margin:0">is awarded to</p><div class="name">${esc(cert.name)}</div><p style="margin:0;max-width:60ch;color:var(--muted)">for completing all lessons and passing every lesson quiz of the Scholio Academy course.</p>
    <div class="meta"><div><b>Issued</b>${d}</div><div><b>Certificate ID</b><span style="font-family:var(--mono)">${cert.id}</span></div><div><b>Verify</b>scholio.org/verify/${cert.id.toLowerCase()}</div></div></div>`;
   $("#cert-side").innerHTML=`<div class="card" style="display:grid;gap:10px"><div class="mono">Share</div><button class="btn" type="button" id="dl"><svg class="i s"><use href="#ic-download"/></svg>Download PNG</button><button class="btn" type="button" id="cp"><svg class="i s"><use href="#ic-share"/></svg>Copy certificate ID</button><p class="note">Add the ID to your CV or LinkedIn. The verify link will resolve once accounts launch; until then keep the PNG.</p></div>`;
   switchView("cert");
-  $("#cp").onclick=e=>{navigator.clipboard?.writeText(cert.id).then(()=>e.currentTarget.textContent="Copied "+cert.id).catch(()=>{})};
+  $("#cp").onclick=e=>{const b=e.currentTarget;navigator.clipboard?.writeText(cert.id).then(()=>b.textContent="Copied "+cert.id).catch(()=>{})};
   $("#dl").onclick=()=>drawCert(cert);
 }
 function drawCert(cert){
@@ -1420,22 +1386,25 @@ function drawCert(cert){
   x.fillStyle="#0f172a";x.font="500 26px Inter,sans-serif";x.fillText(d,90,800);x.font="500 26px JetBrains Mono,monospace";x.fillText(cert.id,560,800);x.font="500 24px Inter,sans-serif";x.fillText("scholio.org/verify/"+cert.id.toLowerCase(),1030,800);
   const a=document.createElement("a");a.download=cert.id+".png";a.href=c.toDataURL("image/png");document.body.appendChild(a);a.click();a.remove();
 }
-function renderMyCerts(){renderSaved();const certs=store.get("sc_certs",[]);$("#mycerts").innerHTML=certs.length?certs.map(c=>`<div class="c"><svg class="i" style="color:var(--accent)"><use href="#ic-trophy"/></svg><div><b>${c.title}</b><br><span style="color:var(--muted)">${c.name} · ${c.date} · <span style="font-family:var(--mono)">${c.id}</span></span></div><button class="btn sm" data-cert="${c.id}">Open</button></div>`).join(""):`<p class="note">No certificates yet. Finish a course in the Academy to earn one.</p>`}
+function renderMyCerts(){renderSaved();const certs=store.get("sc_certs",[]);$("#mycerts").innerHTML=certs.length?certs.map(c=>`<div class="c"><svg class="i" style="color:var(--accent)"><use href="#ic-trophy"/></svg><div><b>${c.title}</b><br><span style="color:var(--muted)">${esc(c.name)} · ${c.date} · <span style="font-family:var(--mono)">${c.id}</span></span></div><button class="btn sm" data-cert="${c.id}">Open</button></div>`).join(""):`<p class="note">No certificates yet. Finish a course in the Academy to earn one.</p>`}
 
 
 /* ---------- research map ---------- */
-let map,mapLayer,mapFilter="",mapMarkers=[];
+let map,mapLayer,mapFilter="",mapMarkers=[],leafletP;
+/* Leaflet is only fetched the first time the map view is opened */
+function loadLeaflet(){if(window.L)return Promise.resolve();return leafletP||(leafletP=new Promise((res,rej)=>{const s=document.createElement("script");s.src="https://cdnjs.cloudflare.com/ajax/libs/leaflet/1.9.4/leaflet.js";s.onload=()=>res();s.onerror=()=>{leafletP=null;s.remove();rej()};document.head.appendChild(s)}))}
+function showMap(){renderMapList();loadLeaflet().then(()=>{initMap();if(map)map.invalidateSize()}).catch(()=>{const n=$("#map-note");n.textContent="The map could not be loaded on this network. Open any award from the list instead.";n.hidden=false;$("#maplist").onclick=e=>{const b=e.target.closest("[data-fly]");if(b&&!map)openDetail(b.dataset.fly)}})}
 function mapRows(){return DATA.filter(d=>daysLeft(d)>=0&&(mapFilter===""||(mapFilter==="checked"?d.checked:d.levels.includes(mapFilter))))}
 function renderMapList(){const rows=mapRows().sort((a,b)=>a.country.localeCompare(b.country));$("#maplist").innerHTML=`<div class="hd">${rows.length} pins · click to zoom</div>`+rows.map(d=>`<button data-fly="${d.id}"><span class="dot ${d.levels.includes("PhD")&&!d.levels.includes("Master's")?"phd":""}"></span><span>${d.name}<br><small>${d.host}, ${d.country}</small></span><small>${dlLabel(d)}</small></button>`).join("")}
 function initMap(){
   if(map||!window.L)return;
   map=L.map("map",{zoomControl:false,worldCopyJump:true,attributionControl:false}).setView([25,40],2);
   const osm=L.tileLayer("https://tile.openstreetmap.org/{z}/{x}/{y}.png",{maxZoom:18,crossOrigin:true});let fails=0;
-  osm.on("tileerror",()=>{fails++;if(fails===4){map.removeLayer(osm);L.tileLayer("https://{s}.basemaps.cartocdn.com/light_all/{z}/{x}/{y}{r}.png",{subdomains:"abcd",maxZoom:18}).addTo(map);$("#map-note").hidden=false}});
+  osm.on("tileerror",()=>{fails++;if(fails===4){map.removeLayer(osm);L.tileLayer("https://{s}.basemaps.cartocdn.com/light_all/{z}/{x}/{y}{r}.png",{subdomains:"abcd",maxZoom:18}).addTo(map);$("#map-attr").insertAdjacentHTML("beforeend",' © <a href="https://carto.com/attributions" target="_blank" rel="noopener">CARTO</a>');$("#map-note").hidden=false}});
   osm.addTo(map);
   mapLayer=L.layerGroup().addTo(map);drawPins();
   $("#map").addEventListener("click",e=>{const b=e.target.closest("[data-ml]");if(!b)return;mapFilter=b.dataset.ml;document.querySelectorAll("[data-ml]").forEach(x=>x.setAttribute("aria-pressed",String(x===b)));drawPins();renderMapList()});
-  $("#maplist").addEventListener("click",e=>{const b=e.target.closest("[data-fly]");if(!b)return;const d=DATA.find(x=>x.id===b.dataset.fly);map.flyTo([d.lat,d.lng],6,{duration:.8});document.querySelectorAll("#maplist button").forEach(x=>x.classList.toggle("on",x===b));const m=mapMarkers.find(m=>m.id===d.id);if(m)m.marker.openTooltip()});
+  $("#maplist").addEventListener("click",e=>{const b=e.target.closest("[data-fly]");if(!b||!map)return;const d=DATA.find(x=>x.id===b.dataset.fly);map.flyTo([d.lat,d.lng],6,{duration:.8});document.querySelectorAll("#maplist button").forEach(x=>x.classList.toggle("on",x===b));const m=mapMarkers.find(m=>m.id===d.id);if(m)m.marker.openTooltip()});
 }
 function drawPins(){
   if(!mapLayer)return;mapLayer.clearLayers();mapMarkers=[];
@@ -1470,7 +1439,7 @@ const GUIDES=[
   body:`<h4>Format</h4><p>Three parts in one sitting: Speaking and Writing together (54 to 67 minutes: read aloud, repeat sentence, describe image, retell lecture, summarise text, essay), Reading (29 to 30 minutes), Listening (30 to 43 minutes). Entirely computer-marked, which is why results arrive in about two days.</p>
   <h4>What scholarships ask for</h4><p>58 is roughly IELTS 6.5; 65 is roughly 7.0. Widely accepted in Australia (Sydney RTP lists it), the UK and New Zealand; less common in continental Europe and East Asia.</p>
   <h4>Where candidates lose points</h4><ul><li><b>Speaking fluency.</b> The machine rewards even pace over perfect content. Hesitation and self-correction cost more than a wrong word.</li><li><b>Repeat sentence.</b> Worth a lot; practise holding 10 to 12 words in memory.</li><li><b>Write from dictation.</b> Spelling counts, and these items feed both Listening and Writing scores.</li></ul>
-  <h4>Three-week plan</b></h4><div class="plan"><div><b>Week 1</b>Free scored practice test. Learn the templates for describe image and retell lecture.</div><div><b>Week 2</b>Daily 30 minutes of repeat sentence and write from dictation; two essays.</div><div><b>Week 3</b>Second scored practice test; fix the lowest enabling skill; rest a day.</div><div><b>Tip</b>Speak at a steady pace into the mic from the first second; the recording stops after 3 seconds of silence.</div></div>
+  <h4>Three-week plan</h4><div class="plan"><div><b>Week 1</b>Free scored practice test. Learn the templates for describe image and retell lecture.</div><div><b>Week 2</b>Daily 30 minutes of repeat sentence and write from dictation; two essays.</div><div><b>Week 3</b>Second scored practice test; fix the lowest enabling skill; rest a day.</div><div><b>Tip</b>Speak at a steady pace into the mic from the first second; the recording stops after 3 seconds of silence.</div></div>
   <h4>Register</h4><p><a href="https://www.pearsonpte.com/" target="_blank" rel="noopener">pearsonpte.com ↗</a>. Results typically within 48 hours.</p>`}
 ];
 let guideI=0;
@@ -1517,9 +1486,10 @@ renderGuide();renderReadQ();
 /* ---------- saved + calendar ---------- */
 const isSaved=id=>store.get("sc_saved",[]).includes(id);
 function toggleSave(id){const a=store.get("sc_saved",[]);const i=a.indexOf(id);i>=0?a.splice(i,1):a.push(id);store.set("sc_saved",a)}
-function icsFor(d){const dt=d.deadline.replace(/-/g,"");const uid=d.id+"@scholio";return ["BEGIN:VCALENDAR","VERSION:2.0","PRODID:-//Scholio//EN","BEGIN:VEVENT","UID:"+uid,"DTSTAMP:"+new Date().toISOString().replace(/[-:]/g,"").slice(0,15)+"Z","DTSTART;VALUE=DATE:"+dt,"SUMMARY:Deadline: "+d.name+" ("+d.country+")","DESCRIPTION:"+(d.deadlineNote||"")+" Official page: "+d.apply,"URL:"+d.apply,"BEGIN:VALARM","TRIGGER:-P14D","ACTION:DISPLAY","DESCRIPTION:14 days to "+d.name,"END:VALARM","BEGIN:VALARM","TRIGGER:-P3D","ACTION:DISPLAY","DESCRIPTION:3 days to "+d.name,"END:VALARM","END:VEVENT","END:VCALENDAR"].join("\r\n")}
+const icsEsc=t=>String(t).replace(/\\/g,"\\\\").replace(/([,;])/g,"\\$1");
+function icsFor(d){const dt=d.deadline.replace(/-/g,"");const uid=d.id+"@scholio";return ["BEGIN:VCALENDAR","VERSION:2.0","PRODID:-//Scholio//EN","BEGIN:VEVENT","UID:"+uid,"DTSTAMP:"+new Date().toISOString().replace(/[-:]/g,"").slice(0,15)+"Z","DTSTART;VALUE=DATE:"+dt,"SUMMARY:"+icsEsc("Deadline: "+d.name+" ("+d.country+")"),"DESCRIPTION:"+icsEsc((d.deadlineNote?d.deadlineNote+". ":"")+"Official page: "+d.apply),"URL:"+d.apply,"BEGIN:VALARM","TRIGGER:-P14D","ACTION:DISPLAY","DESCRIPTION:"+icsEsc("14 days to "+d.name),"END:VALARM","BEGIN:VALARM","TRIGGER:-P3D","ACTION:DISPLAY","DESCRIPTION:"+icsEsc("3 days to "+d.name),"END:VALARM","END:VEVENT","END:VCALENDAR"].join("\r\n")}
 function downloadICS(d){const blob=new Blob([icsFor(d)],{type:"text/calendar"});const a=document.createElement("a");a.href=URL.createObjectURL(blob);a.download=d.id+"-deadline.ics";document.body.appendChild(a);a.click();a.remove()}
-function renderSaved(){const ids=store.get("sc_saved",[]);const el=$("#mysaved");if(!el)return;el.innerHTML=ids.length?ids.map(id=>DATA.find(d=>d.id===id)).filter(Boolean).map(d=>`<div class="c"><svg class="i" style="color:var(--amber)"><use href="#ic-star"/></svg><div><b>${d.name}</b><br><span style="color:var(--muted)">${d.country} · ${d.deadline?fmtDate(d.deadline)+" · "+dlLabel(d)+" left":d.window}</span></div><button class="btn sm" data-open="${d.id}">Open</button></div>`).join(""):`<p class="note">Nothing saved yet. Open any award and press Save.</p>`}
+function renderSaved(){const ids=store.get("sc_saved",[]);const el=$("#mysaved");if(!el)return;el.innerHTML=ids.length?ids.map(id=>DATA.find(d=>d.id===id)).filter(Boolean).map(d=>`<div class="c"><svg class="i" style="color:var(--amber)"><use href="#ic-star"/></svg><div><b>${d.name}</b><br><span style="color:var(--muted)">${d.country} · ${d.deadline?fmtDate(d.deadline)+" · "+leftLabel(d):d.window}</span></div><button class="btn sm" data-open="${d.id}">Open</button></div>`).join(""):`<p class="note">Nothing saved yet. Open any award and press Save.</p>`}
 
 
 
@@ -1570,7 +1540,8 @@ const WSTEPS=[
  {id:"p-fund",q:"What funding do you need?",h:"Partial awards can still be worth it if you have other support.",opts:[["Full","Full funding only"],["","Full or partial"]]},
  {id:"p-dest",q:"Where would you go?",h:"Pick one region or keep it open.",opts:[["","Anywhere"],["Europe","Europe"],["Asia","Asia"],["North America","North America"],["Oceania","Oceania"],["Middle East","Middle East"],["Africa","Africa"]]}
 ];
-let wi=0,wdone=store.get("sc_profile",null)?true:false;
+/* done:false marks a wizard that was started but not finished; profiles saved before that flag existed count as finished */
+let wi=0,wdone=(p=>!!p&&p.done!==false)(store.get("sc_profile",null));
 function wval(id){const el=$("#"+id);return id==="p-offer"?(el.checked?"yes":"no"):el.value}
 function wset(id,v){const el=$("#"+id);if(id==="p-offer")el.checked=(v==="yes");else el.value=v;renderAssess();saveProfile()}
 function renderWizard(){
@@ -1586,9 +1557,9 @@ function renderWizard(){
 }
 document.addEventListener("click",e=>{
   const o=e.target.closest("[data-wv]");if(o){wset(WSTEPS[wi].id,o.dataset.wv);renderWizard();if(wi<WSTEPS.length-1)setTimeout(()=>{wi++;renderWizard()},180);return}
-  if(e.target.closest("#wnext")){if(wi<WSTEPS.length-1){wi++;renderWizard()}else{wdone=true;renderWizard();$("#wresults").scrollIntoView({behavior:"smooth",block:"start"})}return}
+  if(e.target.closest("#wnext")){if(wi<WSTEPS.length-1){wi++;renderWizard()}else{wdone=true;saveProfile();renderWizard();$("#wresults").scrollIntoView({behavior:"smooth",block:"start"})}return}
   if(e.target.closest("#wback")){wi=Math.max(0,wi-1);renderWizard();return}
-  if(e.target.closest("#wretake")){wi=0;wdone=false;renderWizard();window.scrollTo({top:0,behavior:"smooth"});return}
+  if(e.target.closest("#wretake")){wi=0;wdone=false;saveProfile();renderWizard();window.scrollTo({top:0,behavior:"smooth"});return}
 });
 document.addEventListener("input",e=>{if(e.target.id==="wrange"){$("#wout").textContent=e.target.value;wset(WSTEPS[wi].id,e.target.value)}if(e.target.id==="wsel")wset("p-nat",e.target.value)});
 
@@ -1613,16 +1584,16 @@ const TSTEPS=["Read the official page","Shortlist and save","Contact supervisor 
 function trkGet(){return store.get("sc_trk",{})}
 function renderTracker(){const t=trkGet();$("#trk-add").innerHTML=`<option value="">Add an award to track…</option>`+DATA.filter(d=>!t[d.id]).sort((a,b)=>a.name.localeCompare(b.name)).map(d=>`<option value="${d.id}">${d.name} (${d.country})</option>`).join("");
   const ids=Object.keys(t);$("#trk-list").innerHTML=ids.length?ids.map(id=>{const d=DATA.find(x=>x.id===id);if(!d)return"";const r=t[id];const done=r.done.length;const pct=Math.round(done/TSTEPS.length*100);
-   return `<div class="trk" data-trk="${id}"><div class="hd"><div><h4>${d.name}</h4><small style="color:var(--muted)">${d.host} · ${d.deadline?"Deadline "+fmtDate(d.deadline)+" · "+dlLabel(d)+" left":d.window}</small></div><div style="display:flex;gap:8px;align-items:center"><label style="border:0;padding:0;font-size:12px;color:var(--muted)">My target date <input type="date" data-date="${id}" value="${r.target||""}"></label><button class="btn sm" data-open="${id}">Open</button><button class="btn sm" data-trk-rm="${id}">Remove</button></div></div><div class="prog"><i style="width:${pct}%"></i></div><div class="steps2">${TSTEPS.map((st,i)=>`<label class="${r.done.includes(i)?"done":""}"><input type="checkbox" data-step="${id}:${i}" ${r.done.includes(i)?"checked":""}>${st}</label>`).join("")}</div></div>`}).join(""):`<p class="note">Nothing tracked yet. Pick an award above, or use "Track" on any listing.</p>`}
+   return `<div class="trk" data-trk="${id}"><div class="hd"><div><h4>${d.name}</h4><small style="color:var(--muted)">${d.host} · ${d.deadline?"Deadline "+fmtDate(d.deadline)+" · "+leftLabel(d):d.window}</small></div><div style="display:flex;gap:8px;align-items:center"><label style="border:0;padding:0;font-size:12px;color:var(--muted)">My target date <input type="date" data-date="${id}" value="${r.target||""}"></label><button class="btn sm" data-open="${id}">Open</button><button class="btn sm" data-trk-rm="${id}">Remove</button></div></div><div class="prog"><i style="width:${pct}%"></i></div><div class="steps2">${TSTEPS.map((st,i)=>`<label class="${r.done.includes(i)?"done":""}"><input type="checkbox" data-step="${id}:${i}" ${r.done.includes(i)?"checked":""}>${st}</label>`).join("")}</div></div>`}).join(""):`<p class="note">Nothing tracked yet. Pick an award above, or use "Track" on any listing.</p>`}
 document.addEventListener("change",e=>{
   if(e.target.id==="trk-add"&&e.target.value){const t=trkGet();t[e.target.value]={done:[],target:""};store.set("sc_trk",t);renderTracker();return}
   const st=e.target.closest("[data-step]");if(st){const [id,i]=st.dataset.step.split(":");const t=trkGet();const a=t[id].done;const n=+i;st.checked?(!a.includes(n)&&a.push(n)):t[id].done=a.filter(x=>x!==n);store.set("sc_trk",t);renderTracker();return}
   const dt=e.target.closest("[data-date]");if(dt){const t=trkGet();t[dt.dataset.date].target=dt.value;store.set("sc_trk",t);return}
-  if(e.target.id==="lk-file"){[...e.target.files].forEach(f=>{if(f.size>2*1024*1024){alert("Over 2 MB: "+f.name);return}const rd=new FileReader();rd.onload=()=>{const L=store.get("sc_files",[]);L.push({n:f.name,t:f.type,s:f.size,d:rd.result,at:new Date().toISOString().slice(0,10)});try{store.set("sc_files",L)}catch(x){}renderLocker()};rd.readAsDataURL(f)});e.target.value="";return}
+  if(e.target.id==="lk-file"){[...e.target.files].forEach(f=>{if(f.size>2*1024*1024){alert("Over 2 MB: "+f.name);return}const rd=new FileReader();rd.onload=()=>{const L=store.get("sc_files",[]);L.push({n:f.name,t:f.type,s:f.size,d:rd.result,at:new Date().toISOString().slice(0,10)});if(!store.set("sc_files",L))alert("Could not save "+f.name+": this browser's storage for the locker is full. Remove a file and try again.");renderLocker()};rd.readAsDataURL(f)});e.target.value="";return}
 });
 /* ---------- locker ---------- */
 function renderLocker(){$("#lk-sop").value=store.get("sc_sop","");$("#lk-ref").value=store.get("sc_ref","");$("#lk-sop-n").textContent=($("#lk-sop").value.trim().split(/\s+/).filter(Boolean).length)+" words";
-  const L=store.get("sc_files",[]);$("#lk-files").innerHTML=L.length?L.map((f,i)=>`<div class="c"><svg class="i" style="color:var(--accent)"><use href="#ic-doc"/></svg><div><b>${f.n}</b><br><span style="color:var(--muted)">${Math.round(f.s/1024)} KB · ${f.at}</span></div><div style="display:flex;gap:6px"><a class="btn sm" href="${f.d}" download="${f.n}">Download</a><button class="btn sm" data-file-rm="${i}">Remove</button></div></div>`).join(""):`<p class="note">No files yet.</p>`}
+  const L=store.get("sc_files",[]);$("#lk-files").innerHTML=L.length?L.map((f,i)=>`<div class="c"><svg class="i" style="color:var(--accent)"><use href="#ic-doc"/></svg><div><b>${esc(f.n)}</b><br><span style="color:var(--muted)">${Math.round(f.s/1024)} KB · ${f.at}</span></div><div style="display:flex;gap:6px"><a class="btn sm" href="${f.d}" download="${esc(f.n)}">Download</a><button class="btn sm" data-file-rm="${i}">Remove</button></div></div>`).join(""):`<p class="note">No files yet.</p>`}
 document.addEventListener("input",e=>{if(e.target.id==="lk-sop"){store.set("sc_sop",e.target.value);$("#lk-sop-n").textContent=(e.target.value.trim().split(/\s+/).filter(Boolean).length)+" words"}if(e.target.id==="lk-ref")store.set("sc_ref",e.target.value)});
 /* ---------- award deep link page ---------- */
 function renderAwardPage(id){const d=DATA.find(x=>x.id===id);if(!d){$("#award-page").innerHTML=`<p class="note">Award not found.</p>`;return}
@@ -1631,7 +1602,7 @@ function renderAwardPage(id){const d=DATA.find(x=>x.id===id);if(!d){$("#award-pa
   $("#award-page").innerHTML=`<div class="cta" style="margin:0 0 14px"><button class="btn sm" data-view="home"><svg class="i s"><use href="#ic-back"/></svg>All awards</button></div>
   <div class="hero" style="padding:28px 32px"><div class="lead"><div class="kicker">${d.country} · ${d.region}${u.rank?" · QS #"+u.rank:""}</div><h2 style="font-size:clamp(26px,3.6vw,38px)">${d.name}</h2><p>${d.host} · ${d.levels.join(" / ")} · ${d.funding==="Full"?"Fully funded":"Partial funding"}</p>
   <div style="display:flex;gap:6px;flex-wrap:wrap;margin-top:12px"><span class="tag ${ct}">${cl}</span><span class="tag">${ROUTE[el.route]}</span>${el.bond?'<span class="tag warn">Return-home bond</span>':""}${d.checked?'<span class="tag ok">Verified '+fmtDate(d.checked)+'</span>':'<span class="tag">Confirm on official page</span>'}</div>
-  <div class="ctas"><a class="btn primary" href="${d.apply}" target="_blank" rel="noopener">Official page ↗</a><button class="btn" data-open="${d.id}">Details, save, compare</button><button class="btn" data-view="assess">Check my Scholio Score</button></div></div>
+  <div class="cta" style="margin-bottom:0"><a class="btn primary" href="${d.apply}" target="_blank" rel="noopener">Official page ↗</a><button class="btn" data-open="${d.id}">Details, save, compare</button><button class="btn" data-view="assess">Check my Scholio Score</button></div></div>
   <div class="card"><div class="deadline-big" style="margin:0">${d.deadline?`<b>${dlLabel(d)}</b><span>${daysLeft(d)>=0?"left. ":""}Deadline ${fmtDate(d.deadline)}. ${d.deadlineNote}.</span>`:`<b style="font-size:20px">Typical window</b><span>${d.window}.</span>`}</div><dl style="margin-top:14px"><dt>Who may apply</dt><dd>${d.who}</dd><dt>Covers</dt><dd>${d.value}</dd><dt>English</dt><dd>${d.english}</dd><dt>Good to know</dt><dd>${d.note}</dd></dl></div></div>`}
 document.addEventListener("click",e=>{
   if(e.target.closest("#cmpclear")){store.set("sc_cmp",[]);renderCmpBar();if(!$("#view-compare").hidden)renderCompare();return}
@@ -1651,22 +1622,27 @@ async function signInMagic(email){if(!accountsEnabled())return false;await supa(
 (function(){if(!accountsEnabled())return;const c=$("#authcard-live");if(c)c.hidden=false;const s=$("#authcard-soon");if(s)s.hidden=true})();
 
 /* ---------- events ---------- */
-function renderEvents(){const dated=DATA.filter(d=>d.deadline&&daysLeft(d)>=0).sort((a,b)=>daysLeft(a)-daysLeft(b));const win=DATA.filter(d=>!d.deadline);$("#events").innerHTML=dated.map(d=>{const dt=new Date(d.deadline+"T00:00:00");return `<div class="ev"><div class="d"><b>${dt.getDate()}</b><span>${dt.toLocaleDateString("en-GB",{month:"short"})}</span></div><div><h4>${d.name}</h4><p>${d.host}, ${d.country} · ${d.deadlineNote}</p></div><div class="act" style="display:flex;gap:8px;align-items:center"><span class="tag ${dlClass(d)}">${dlLabel(d)} left</span><button class="btn sm" type="button" data-ics="${d.id}" title="Add to calendar"><svg class="i s"><use href="#ic-cal"/></svg></button><button class="btn sm" type="button" data-open="${d.id}">Open</button></div></div>`}).join("")+`<div class="mono" style="margin:18px 0 8px">Annual windows (exact dates set each cycle)</div>`+win.map(d=>`<div class="ev"><div class="d"><b style="font-size:14px">${d.window.match(/January|February|March|April|May|June|July|August|September|October|November|December/)?.[0]?.slice(0,3)||"–"}</b><span>opens</span></div><div><h4>${d.name}</h4><p>${d.host}, ${d.country} · ${d.window}</p></div><div class="act"><button class="btn sm" type="button" data-open="${d.id}">Open</button></div></div>`).join("")}
+function renderEvents(){const dated=DATA.filter(d=>d.deadline&&daysLeft(d)>=0).sort((a,b)=>daysLeft(a)-daysLeft(b));const win=DATA.filter(d=>!d.deadline);$("#events").innerHTML=dated.map(d=>{const dt=new Date(d.deadline+"T00:00:00");return `<div class="ev"><div class="d"><b>${dt.getDate()}</b><span>${dt.toLocaleDateString("en-GB",{month:"short"})}</span></div><div><h4>${d.name}</h4><p>${d.host}, ${d.country} · ${d.deadlineNote}</p></div><div class="act" style="display:flex;gap:8px;align-items:center"><span class="tag ${dlClass(d)}">${leftLabel(d)}</span><button class="btn sm" type="button" data-ics="${d.id}" title="Add to calendar"><svg class="i s"><use href="#ic-cal"/></svg></button><button class="btn sm" type="button" data-open="${d.id}">Open</button></div></div>`}).join("")+`<div class="mono" style="margin:18px 0 8px">Annual windows (exact dates set each cycle)</div>`+win.map(d=>`<div class="ev"><div class="d">${(m=>m?`<b style="font-size:14px">${m[1].slice(0,3)}</b><span>opens</span>`:`<b style="font-size:14px">–</b><span>varies</span>`)(d.window.match(/\bopens?\s+(?:around\s+|early\s+|mid-|late\s+|\d+\s+)?(January|February|March|April|May|June|July|August|September|October|November|December)/i))}</div><div><h4>${d.name}</h4><p>${d.host}, ${d.country} · ${d.window}</p></div><div class="act"><button class="btn sm" type="button" data-open="${d.id}">Open</button></div></div>`).join("")}
 
 /* ---------- views ---------- */
 const VIEWS=["home","map","countries","resources","score","compare","tracker","locker","award","rank","assess","academy","course","cert","events","funders","about","signup"];
-function switchView(v){
+const TITLE=document.title;
+function showView(v){
   const navV=v==="course"||v==="cert"?"academy":v==="score"?"assess":v;
   document.querySelectorAll("nav button[data-view]").forEach(b=>b.setAttribute("aria-selected",String(b.dataset.view===navV)));const ms=$("#moresheet");if(ms)ms.hidden=true;
   VIEWS.forEach(x=>{const el=$("#view-"+x);if(el)el.hidden=(x!==v)});
-  if(v==="assess"){loadProfile();renderAssess();renderWizard()}if(v==="rank")renderRank();if(v==="map"){setTimeout(()=>{initMap();if(map)map.invalidateSize();renderMapList()},30)}if(v==="academy")renderCourses();if(v==="home")renderForYou();if(v==="signup")renderMyCerts();if(v==="resources")renderCV();if(v==="compare")renderCompare();if(v==="award"&&window.__award)renderAwardPage(window.__award);if(v==="tracker")renderTracker();if(v==="locker")renderLocker();
+  if(v!=="award")document.title=TITLE;
+  if(v==="assess"){loadProfile();renderAssess();renderWizard()}if(v==="rank")renderRank();if(v==="map")showMap();if(v==="academy")renderCourses();if(v==="home")renderForYou();if(v==="signup")renderMyCerts();if(v==="resources")renderCV();if(v==="compare")renderCompare();if(v==="award"&&window.__award)renderAwardPage(window.__award);if(v==="tracker")renderTracker();if(v==="locker")renderLocker();
+}
+function switchView(v){
+  showView(v);
   window.scrollTo({top:0});
   try{if(BASE){const want=BASE+(v==="home"?"":v==="award"&&window.__award?"award/"+window.__award+"/":v+"/");if(location.pathname!==want)history.pushState({v},"",want)}
   else if(location.hash.replace("#","")!==v)history.replaceState(null,"","#"+v)}catch(e){}
 }
 const BASE=location.pathname.startsWith("/scholio/")?"/scholio/":(location.hostname.endsWith("github.io")?"/":null);
 function routeFromURL(){if(BASE){const parts=location.pathname.slice(BASE.length).split("/").filter(Boolean);const seg=parts[0]||"home";if(seg==="award"&&parts[1]){window.__award=parts[1];return"award"}return VIEWS.includes(seg)?seg:"home"}const h=location.hash.replace("#","");return VIEWS.includes(h)?h:"home"}
-window.addEventListener("popstate",()=>{const v=routeFromURL();document.querySelectorAll("nav button[data-view]").forEach(b=>b.setAttribute("aria-selected",String(b.dataset.view===(v==="course"||v==="cert"?"academy":v==="score"?"assess":v))));VIEWS.forEach(x=>{const el=$("#view-"+x);if(el)el.hidden=(x!==v)});if(v==="assess"){loadProfile();renderAssess();renderWizard()}if(v==="rank")renderRank();if(v==="academy")renderCourses();if(v==="home")renderForYou();if(v==="signup")renderMyCerts();if(v==="resources")renderCV();if(v==="compare")renderCompare();if(v==="award"&&window.__award)renderAwardPage(window.__award);if(v==="tracker")renderTracker();if(v==="locker")renderLocker();if(v==="map"){setTimeout(()=>{initMap();if(map)map.invalidateSize();renderMapList()},30)}});
+window.addEventListener("popstate",()=>{let v=routeFromURL();if((v==="course"&&!cur.id)||(v==="cert"&&!$("#cert-card").innerHTML))v="academy";showView(v)});
 document.addEventListener("click",e=>{
   const v=e.target.closest("[data-view]");if(v){e.preventDefault();switchView(v.dataset.view);return}
   const sc=e.target.closest("[data-scroll]");if(sc){switchView("home");scrollToId(sc.dataset.scroll);return}
@@ -1680,16 +1656,12 @@ document.addEventListener("click",e=>{
   const su=e.target.closest("#sugg-box button");if(su){suggList[+su.dataset.i].act();$("#sugg-box").classList.remove("open");return}
   const rk=e.target.closest("[data-rank]");if(rk){rankFilter=rk.dataset.rank;renderRank();return}
   const cc=e.target.closest("[data-c]");if(cc){state.q=cc.dataset.c;$("#q").value=cc.dataset.c;renderChips();renderGrid();switchView("home");scrollToId("catalogue");return}
-  const cs=e.target.closest("[data-course-go]");if(cs){openCourse(cs.dataset.courseGo);return}
   const ll=e.target.closest("#lessons button[data-l]");if(ll){cur.i=+ll.dataset.l;renderLesson();return}
   if(e.target.closest("#check")){checkQuiz();return}
   if(e.target.closest("#next")){const c=COURSES.find(x=>x.id===cur.id);if(cur.i===c.lessons.length-1)issueCert();else{cur.i++;renderLesson()}return}
   if(e.target.closest("#prev")){cur.i=Math.max(0,cur.i-1);renderLesson();return}
-  const rs=e.target.closest("[data-rsvp]");if(rs){rs.textContent="Going ✓";rs.disabled=true;return}
   if(e.target.closest("#clear")){clearFilters();return}
   if(e.target.closest("#go")){doSearch();return}
-  
-  
   if(!e.target.closest(".search"))$("#sugg-box").classList.remove("open");
 });
 $("#q").addEventListener("input",()=>{suggIdx=-1;renderSugg();state.q=$("#q").value;renderChips();renderGrid()});
@@ -1708,6 +1680,8 @@ const intro=$("#intro");if(intro){const done=()=>intro.classList.add("done");int
 
 renderChips();renderStats();renderGrid();renderStrip();renderCmpBar();renderCountries();renderCourses();renderEvents();renderRank();loadProfile();renderAssess();renderForYou();renderMyCerts();
 const h0=routeFromURL();if(h0!=="home"&&h0!=="course"&&h0!=="cert")switchView(h0);else if(BASE&&location.hash)try{history.replaceState(null,"",BASE)}catch(e){}
+/* ?q=term (the sitelinks search action in the page head) pre-fills the catalogue search */
+(function(){const q=new URLSearchParams(location.search).get("q");if(q&&h0==="home"){$("#q").value=q;doSearch()}})();
 
 </script>
 

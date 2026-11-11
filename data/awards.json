@@ -1175,7 +1175,11 @@
    "excl": [
     "DE"
    ],
-   "route": "direct"
+   "route": "direct",
+   "age": {
+    "Master's": 30,
+    "PhD": 30
+   }
   },
   "lat": 52.52,
   "lng": 13.4,
@@ -1245,7 +1249,8 @@
   "elig": {
    "cit": "any",
    "excl": [
-    "IE"
+    "IE",
+    "EEA"
    ],
    "route": "nomination"
   },
@@ -1557,7 +1562,8 @@
   "id": "manaaki",
   "elig": {
    "cit": "oda",
-   "route": "direct"
+   "route": "direct",
+   "bond": true
   },
   "lat": -41.29,
   "lng": 174.78,
@@ -1863,7 +1869,10 @@
   "id": "brunei",
   "elig": {
    "cit": "participating",
-   "route": "direct"
+   "route": "direct",
+   "age": {
+    "Master's": 35
+   }
   },
   "lat": 4.94,
   "lng": 114.95,
@@ -1898,7 +1907,11 @@
    "excl": [
     "MY"
    ],
-   "route": "direct"
+   "route": "direct",
+   "age": {
+    "Master's": 40,
+    "PhD": 45
+   }
   },
   "lat": 3.14,
   "lng": 101.69,
